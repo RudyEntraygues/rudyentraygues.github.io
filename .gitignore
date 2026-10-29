@@ -1,0 +1,22 @@
+# Secrets (un site statique ne peut de toute façon rien cacher : tout le HTML/CSS/JS est public)
+.env
+.env.local
+
+# Configuration personnelle de Claude Code
+.claude/settings.local.json
+
+# Configuration de l'éditeur
+.vscode/
+
+# Journaux
+*.log
+
+# Fichiers système Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Fichiers système macOS
+.DS_Store
