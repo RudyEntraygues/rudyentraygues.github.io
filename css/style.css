@@ -5,45 +5,45 @@
 
 /* ---------- 1. Variables (les « ingrédients » du design) ---------- */
 :root {
-    /* Couleurs : un seul vert pour tout ce qui est cliquable */
-    --couleur-principale: #00783c;        /* liens et boutons sur fond clair */
-    --couleur-focus: #008643;             /* contour au clavier */
-    --couleur-principale-sombre: #00ab56; /* liens sur fond sombre */
+  /* Couleurs : un seul vert pour tout ce qui est cliquable */
+  --couleur-principale: #00783c; /* liens et boutons sur fond clair */
+  --couleur-focus: #008643; /* contour au clavier */
+  --couleur-principale-sombre: #00ab56; /* liens sur fond sombre */
 
-    /* Couleurs du texte */
-    --texte: #1d1d1f;                     /* texte sur fond clair */
-    --texte-sur-sombre: #ffffff;          /* texte sur fond sombre */
-    --texte-attenue-sombre: #cccccc;      /* texte secondaire sur fond sombre */
-    --texte-pied-de-page: #333333;        /* texte du pied de page */
+  /* Couleurs du texte */
+  --texte: #1d1d1f; /* texte sur fond clair */
+  --texte-sur-sombre: #ffffff; /* texte sur fond sombre */
+  --texte-attenue-sombre: #cccccc; /* texte secondaire sur fond sombre */
+  --texte-pied-de-page: #333333; /* texte du pied de page */
 
-    /* Couleurs de fond */
-    --fond-blanc: #ffffff;
-    --fond-parchemin: #f5f5f7;            /* gris très clair */
-    --fond-sombre: #272729;               /* sections sombres */
-    --fond-noir: #000000;                 /* barre de navigation */
-    --bordure: #e0e0e0;                   /* bordure fine des cartes */
+  /* Couleurs de fond */
+  --fond-blanc: #ffffff;
+  --fond-parchemin: #f5f5f7; /* gris très clair */
+  --fond-sombre: #272729; /* sections sombres */
+  --fond-noir: #000000; /* barre de navigation */
+  --bordure: #e0e0e0; /* bordure fine des cartes */
 
-    /* Polices : celle du système, aucune police à télécharger */
-    --police-titres: "SF Pro Display", system-ui, -apple-system, sans-serif;
-    --police-texte: "SF Pro Text", system-ui, -apple-system, sans-serif;
+  /* Polices : celle du système, aucune police à télécharger */
+  --police-titres: "SF Pro Display", system-ui, -apple-system, sans-serif;
+  --police-texte: "SF Pro Text", system-ui, -apple-system, sans-serif;
 
-    /* Espacements */
-    --espace-xxs: 4px;
-    --espace-xs: 8px;
-    --espace-sm: 12px;
-    --espace-md: 17px;
-    --espace-lg: 24px;
-    --espace-xl: 32px;
-    --espace-xxl: 48px;
-    --espace-section: 80px;
+  /* Espacements */
+  --espace-xxs: 4px;
+  --espace-xs: 8px;
+  --espace-sm: 12px;
+  --espace-md: 17px;
+  --espace-lg: 24px;
+  --espace-xl: 32px;
+  --espace-xxl: 48px;
+  --espace-section: 80px;
 
-    /* Arrondis */
-    --arrondi-sm: 8px;
-    --arrondi-lg: 18px;                   /* cartes */
-    --arrondi-pilule: 9999px;             /* boutons */
+  /* Arrondis */
+  --arrondi-sm: 8px;
+  --arrondi-lg: 18px; /* cartes */
+  --arrondi-pilule: 9999px; /* boutons */
 
-    /* Largeur maximale du contenu */
-    --largeur-max: 980px;
+  /* Largeur maximale du contenu */
+  --largeur-max: 980px;
 }
 
 /* ---------- 2. Base (s'applique à toute la page) ---------- */
@@ -53,42 +53,42 @@
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    margin: 0;                          /* supprime la marge blanche ajoutée par le navigateur */
-    font-family: var(--police-texte);
-    font-size: 17px;                    /* taille du texte courant prévue par DESIGN.md */
-    line-height: 1.47;
-    letter-spacing: -0.374px;
-    color: var(--texte);
-    background-color: var(--fond-blanc);
+  margin: 0; /* supprime la marge blanche ajoutée par le navigateur */
+  font-family: var(--police-texte);
+  font-size: 17px; /* taille du texte courant prévue par DESIGN.md */
+  line-height: 1.47;
+  letter-spacing: -0.374px;
+  color: var(--texte);
+  background-color: var(--fond-blanc);
 }
 
 /* Titres : police d'affichage, graisse 600 (jamais 700 selon DESIGN.md) */
 h1,
 h2,
 h3 {
-    margin: 0 0 var(--espace-md);
-    font-family: var(--police-titres);
-    font-weight: 600;
-    line-height: 1.1;
+  margin: 0 0 var(--espace-md);
+  font-family: var(--police-titres);
+  font-weight: 600;
+  line-height: 1.1;
 }
 
 p {
-    margin: 0 0 var(--espace-md);
+  margin: 0 0 var(--espace-md);
 }
 
 /* Liens : le vert principal, le seul vert « cliquable » */
 a {
-    color: var(--couleur-principale);
+  color: var(--couleur-principale);
 }
 
 /* Contour bien visible quand on navigue au clavier (touche Tab) */
 a:focus-visible {
-    outline: 2px solid var(--couleur-focus);
-    outline-offset: 2px;
+  outline: 2px solid var(--couleur-focus);
+  outline-offset: 2px;
 }
 
 /* ---------- 3. En-tête et menu ---------- */
@@ -96,164 +96,230 @@ a:focus-visible {
 /* Barre noire en haut de page. flex = les éléments se placent en ligne ;
    flex-wrap = ils passent à la ligne s'il n'y a plus de place (mobile) */
 .en-tete {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;     /* nom à gauche, menu à droite */
-    gap: 0 var(--espace-lg);
-    padding: 0 var(--espace-lg);
-    background-color: var(--fond-noir);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between; /* nom à gauche, menu à droite */
+  gap: 0 var(--espace-lg);
+  padding: 0 var(--espace-lg);
+  background-color: var(--fond-noir);
 }
 
 /* Mon nom, en lien vers l'accueil */
 .logo {
-    display: inline-block;
-    padding: var(--espace-sm) 0;        /* même hauteur que les liens du menu */
-    color: var(--texte-sur-sombre);
-    font-size: 14px;
-    font-weight: 600;
-    text-decoration: none;
+  display: inline-block;
+  padding: var(--espace-sm) 0; /* même hauteur que les liens du menu */
+  color: var(--texte-sur-sombre);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
 }
 
 /* La liste du menu : sans puces, en ligne */
 .menu {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0 var(--espace-lg);
-    margin: 0;
-    padding: 0;
-    list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 var(--espace-lg);
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 /* Les liens du menu : blancs, sans soulignement.
    Les marges intérieures donnent une zone cliquable d'au moins 44px de haut */
 .menu a {
-    display: inline-block;
-    padding: var(--espace-sm) 0;
-    color: var(--texte-sur-sombre);
-    font-size: 14px;
-    text-decoration: none;
+  display: inline-block;
+  padding: var(--espace-sm) 0;
+  color: var(--texte-sur-sombre);
+  font-size: 14px;
+  text-decoration: none;
 }
 
 /* La page en cours est soulignée : on sait où on est sans se fier à la couleur */
 .menu a[aria-current="page"] {
-    text-decoration: underline;
-    text-underline-offset: 4px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 /* ---------- 4. Héros (première section de l'accueil) ---------- */
 
 /* Tuile claire : fond blanc, contenu centré, beaucoup d'espace autour */
 .heros {
-    padding: var(--espace-section) var(--espace-lg);
-    background-color: var(--fond-blanc);
-    text-align: center;
+  padding: var(--espace-section) var(--espace-lg);
+  background-color: var(--fond-blanc);
+  text-align: center;
 }
 
 /* Grand titre : lettres légèrement resserrées, comme le prévoit DESIGN.md */
 .heros h1 {
-    font-size: 56px;
-    line-height: 1.07;
-    letter-spacing: -0.28px;
+  font-size: 56px;
+  line-height: 1.07;
+  letter-spacing: -0.28px;
 }
 
 /* Accroche : plus grande que le texte courant, largeur limitée pour la lecture */
 .accroche {
-    max-width: var(--largeur-max);
-    margin: 0 auto var(--espace-xl);    /* auto à gauche et à droite = centré */
-    font-size: 28px;
-    line-height: 1.14;
+  max-width: var(--largeur-max);
+  margin: 0 auto var(--espace-xl); /* auto à gauche et à droite = centré */
+  font-size: 28px;
+  line-height: 1.14;
 }
 
 /* Les deux boutons côte à côte, centrés, et l'un sous l'autre si la place manque */
 .boutons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: var(--espace-sm);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--espace-sm);
 }
 
 /* Forme commune des boutons : une pilule */
 .bouton {
-    display: inline-block;
-    padding: 11px 22px;
-    border: 1px solid var(--couleur-principale);
-    border-radius: var(--arrondi-pilule);
-    text-decoration: none;
+  display: inline-block;
+  padding: 11px 22px;
+  border: 1px solid var(--couleur-principale);
+  border-radius: var(--arrondi-pilule);
+  text-decoration: none;
 }
 
 /* Bouton principal : vert plein, texte blanc */
 .bouton-principal {
-    background-color: var(--couleur-principale);
-    color: var(--texte-sur-sombre);
+  background-color: var(--couleur-principale);
+  color: var(--texte-sur-sombre);
 }
 
 /* Bouton secondaire : contour vert, fond transparent */
 .bouton-secondaire {
-    background-color: transparent;
-    color: var(--couleur-principale);
+  background-color: transparent;
+  color: var(--couleur-principale);
 }
 
 /* Écrans moyens (tablette, petit ordinateur) : titre réduit */
 @media (max-width: 1068px) {
-    .heros h1 {
-        font-size: 40px;
-    }
+  .heros h1 {
+    font-size: 40px;
+  }
 }
 
 /* Téléphones : titre, accroche et espaces réduits */
 @media (max-width: 640px) {
-    .heros {
-        padding: var(--espace-xxl) var(--espace-lg);
-    }
+  .heros {
+    padding: var(--espace-xxl) var(--espace-lg);
+  }
 
-    .heros h1 {
-        font-size: 34px;
-    }
+  .heros h1 {
+    font-size: 34px;
+  }
 
-    .accroche {
-        font-size: 21px;
-    }
+  .accroche {
+    font-size: 21px;
+  }
 }
 
 /* ---------- 5. Présentation (section sombre) ---------- */
 
 /* Tuile sombre : le changement de fond sépare cette section du héros */
 .presentation {
-    padding: var(--espace-section) var(--espace-lg);
-    background-color: var(--fond-sombre);
-    color: var(--texte-sur-sombre);
-    text-align: center;
+  padding: var(--espace-section) var(--espace-lg);
+  background-color: var(--fond-sombre);
+  color: var(--texte-sur-sombre);
+  text-align: center;
 }
 
 .presentation h2 {
-    font-size: 40px;
+  font-size: 40px;
 }
 
 /* Paragraphe plus grand et plus aéré, largeur limitée pour la lecture */
 .presentation p {
-    max-width: 760px;
-    margin: 0 auto;
-    font-size: 21px;
-    line-height: 1.5;
+  max-width: 760px;
+  margin: 0 auto;
+  font-size: 21px;
+  line-height: 1.5;
 }
 
 /* Sur fond sombre, les liens utilisent le vert clair (prévu pour la suite) */
 .presentation a {
-    color: var(--couleur-principale-sombre);
+  color: var(--couleur-principale-sombre);
 }
 
 /* Téléphones : moins d'espace, titre et texte réduits */
 @media (max-width: 640px) {
-    .presentation {
-        padding: var(--espace-xxl) var(--espace-lg);
-    }
+  .presentation {
+    padding: var(--espace-xxl) var(--espace-lg);
+  }
 
-    .presentation h2 {
-        font-size: 28px;
-    }
+  .presentation h2 {
+    font-size: 28px;
+  }
 
-    .presentation p {
-        font-size: 17px;
-    }
+  .presentation p {
+    font-size: 17px;
+  }
+}
+
+/* ---------- 6. Raccourcis (cartes vers les autres pages) ---------- */
+
+/* Tuile parchemin : fond gris très clair, pour alterner avec la section sombre */
+.raccourcis {
+  padding: var(--espace-section) var(--espace-lg);
+  background-color: var(--fond-parchemin);
+}
+
+.raccourcis h2 {
+  margin-bottom: var(--espace-xxl);
+  font-size: 40px;
+  text-align: center;
+}
+
+/* Grille : 4 colonnes de même largeur, 24px entre les cartes */
+.cartes {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--espace-lg);
+  max-width: var(--largeur-max);
+  margin: 0 auto;
+}
+
+/* Carte : fond blanc, bordure fine, coins arrondis, pas d'ombre.
+   flex en colonne pour pouvoir pousser le lien tout en bas */
+.carte {
+  display: flex;
+  flex-direction: column;
+  padding: var(--espace-lg);
+  background-color: var(--fond-blanc);
+  border: 1px solid var(--bordure);
+  border-radius: var(--arrondi-lg);
+}
+
+.carte h3 {
+  font-size: 21px;
+  line-height: 1.19;
+}
+
+/* Le texte prend toute la place libre : les liens des 4 cartes sont alignés en bas */
+.carte p {
+  flex-grow: 1;
+}
+
+/* Tablettes et petits ordinateurs : 2 colonnes */
+@media (max-width: 1068px) {
+  .cartes {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Téléphones : 1 colonne, moins d'espace, titre réduit */
+@media (max-width: 640px) {
+  .raccourcis {
+    padding: var(--espace-xxl) var(--espace-lg);
+  }
+
+  .raccourcis h2 {
+    font-size: 28px;
+  }
+
+  .cartes {
+    grid-template-columns: 1fr;
+  }
 }

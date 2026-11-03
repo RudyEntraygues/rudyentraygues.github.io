@@ -565,3 +565,43 @@ Ce journal retrace chaque étape de la création de mon portfolio : ce qui a ét
 - Sur un fond sombre, il faut changer la couleur du texte (blanc) et celle des liens (un vert plus clair), sinon ils deviennent illisibles.
 - Une règle CSS peut cibler un élément à l'intérieur d'un autre, par exemple `.presentation h2` pour le titre de cette section seulement.
 - Le blanc sur `#272729` a un contraste d'environ 14:1, très au-dessus du minimum de 4,5:1.
+
+---
+
+## Étape 20 : cartes de raccourcis
+
+**Date :** 03/11/2026
+
+**Objectif :** mettre en forme la section « Découvrir mon portfolio » et ses 4 cartes vers les autres pages.
+
+**Ce qui a été fait :**
+
+- Dans `css/style.css`, ajout d'une section « Raccourcis » :
+  - `.raccourcis` : fond parchemin (gris très clair), 80px d'espace en haut et en bas ;
+  - titre `h2` en 40px, centré ;
+  - `.cartes` : grille de 4 colonnes de même largeur, avec 24px entre les cartes et une largeur maximale de 980px ;
+  - `.carte` : fond blanc, bordure fine, arrondi de 18px, 24px de marge intérieure, pas d'ombre ;
+  - titres des cartes en 21px ;
+  - `flex-grow: 1` sur le texte, pour aligner les liens en bas des cartes.
+- Media queries :
+  - jusqu'à 1068px : 2 colonnes ;
+  - jusqu'à 640px : 1 colonne, titre en 28px, espace réduit à 48px.
+- Vérification dans Chrome via Live Server :
+  - ordinateur (1536px) : 4 cartes de 227px, liens alignés à la même hauteur ;
+  - tablette (900px) : 2 lignes de 2 cartes, liens alignés sur chaque ligne ;
+  - téléphone (390px) : cartes empilées ;
+  - il n'y a jamais de défilement horizontal.
+
+**Problèmes et solutions :** Aucun.
+
+**Décisions :**
+
+- 4, puis 2, puis 1 colonne : le nombre de colonnes suit le nombre de cartes et la largeur de l'écran.
+- Les liens des cartes restent soulignés, comme les autres liens dans du texte.
+- Même taille de titre `h2` que la section sombre (40px, puis 28px sur téléphone), pour que les sections restent cohérentes.
+
+**Ce que j'ai appris :**
+
+- `display: grid` avec `grid-template-columns: repeat(4, 1fr)` crée 4 colonnes de même largeur ; `1fr` signifie « une part de l'espace disponible ».
+- `gap` règle l'espace entre les éléments d'une grille (ou d'un flex), sans ajouter de marge sur les bords.
+- Dans une carte en `flex-direction: column`, `flex-grow: 1` sur le texte le fait grandir pour remplir la place libre, ce qui pousse le lien tout en bas.
