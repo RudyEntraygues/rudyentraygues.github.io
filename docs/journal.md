@@ -235,3 +235,35 @@ Ce journal retrace chaque étape de la création de mon portfolio : ce qui a ét
 
 - Git n'enregistre pas les dossiers vides : le fichier `.gitkeep` sert seulement à garder le dossier `images/` dans le dépôt. On pourra le supprimer quand il contiendra de vraies images.
 - GitHub Pages affiche automatiquement `index.html` quand on visite l'adresse du site.
+
+---
+
+## Étape 11 : structure HTML de la page d'accueil
+
+**Date :** 03/11/2026
+
+**Objectif :** écrire tout le contenu HTML de `index.html`, sans le style, en avançant point par point.
+
+**Ce qui a été fait :**
+
+- **Squelette** : j'ai écrit moi-même le `<head>` ; j'ai corrigé les chemins vers `css/style.css` et `js/script.js` et ajouté une description. J'ai changé le titre de l'onglet en `Rudy Entraygues | Portfolio`.
+- **En-tête** : mon nom en lien vers l'accueil et un menu `<nav>` de 6 liens, avec `aria-current="page"` sur « Accueil ».
+- **Contenu principal** (`<main>`) : une section héros (titre `h1`, accroche, deux liens-boutons), une section « Ce que je fais » et une section de 4 cartes vers les autres pages.
+- **Pied de page** : mention © 2026 et lien vers mon profil GitHub.
+- **Vérification** : la page s'affiche dans Chrome via l'extension VS Code **Live Server** (`http://127.0.0.1:5500`).
+
+**Décisions :**
+
+- Utiliser des balises sémantiques (`header`, `nav`, `main`, `section`, `article`, `footer`) pour l'accessibilité et le référencement.
+- Respecter la hiérarchie des titres : un seul `h1`, puis `h2` pour les sections et `h3` pour les cartes.
+- Des liens `<a>` (et non des `<button>`) pour les boutons du héros, car ils mènent vers une autre page.
+- Des textes provisoires, que je réécrirai avec mes propres mots.
+- Aucune donnée personnelle sensible dans le pied de page : seulement un lien GitHub, qui est public.
+- Live Server pour les vérifications, car l'extension Claude refuse les fichiers ouverts en `file:///` et Python n'est pas installé.
+
+**Ce que j'ai appris :**
+
+- Sans CSS, le navigateur applique un style par défaut : texte noir, liens bleus soulignés, listes à puces.
+- Un chemin comme `href="style.css"` est relatif : il cherche le fichier dans le même dossier que la page. Il faut écrire `css/style.css` si le fichier est dans un sous-dossier.
+- `aria-label` et `aria-current` donnent des informations aux lecteurs d'écran sans rien changer à l'affichage.
+- Un serveur web local (Live Server) envoie les fichiers au navigateur en HTTP, comme le fera GitHub Pages.
