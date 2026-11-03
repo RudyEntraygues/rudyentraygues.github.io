@@ -45,3 +45,48 @@
     /* Largeur maximale du contenu */
     --largeur-max: 980px;
 }
+
+/* ---------- 2. Base (s'applique à toute la page) ---------- */
+
+/* La largeur d'un élément inclut ses marges intérieures et sa bordure :
+   les calculs de taille sont plus simples */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;                          /* supprime la marge blanche ajoutée par le navigateur */
+    font-family: var(--police-texte);
+    font-size: 17px;                    /* taille du texte courant prévue par DESIGN.md */
+    line-height: 1.47;
+    letter-spacing: -0.374px;
+    color: var(--texte);
+    background-color: var(--fond-blanc);
+}
+
+/* Titres : police d'affichage, graisse 600 (jamais 700 selon DESIGN.md) */
+h1,
+h2,
+h3 {
+    margin: 0 0 var(--espace-md);
+    font-family: var(--police-titres);
+    font-weight: 600;
+    line-height: 1.1;
+}
+
+p {
+    margin: 0 0 var(--espace-md);
+}
+
+/* Liens : le bleu principal, le seul bleu « cliquable » */
+a {
+    color: var(--couleur-principale);
+}
+
+/* Contour bien visible quand on navigue au clavier (touche Tab) */
+a:focus-visible {
+    outline: 2px solid var(--couleur-focus);
+    outline-offset: 2px;
+}

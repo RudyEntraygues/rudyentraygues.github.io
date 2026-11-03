@@ -379,3 +379,37 @@ Ce journal retrace chaque étape de la création de mon portfolio : ce qui a ét
 - Une variable CSS se déclare avec deux tirets (`--nom: valeur;`) et s'utilise avec `var(--nom)`.
 - `:root` représente toute la page : une variable déclarée là est utilisable partout.
 - Avec des variables, on change une couleur à un seul endroit au lieu de la chercher dans tout le fichier.
+
+---
+
+## Étape 15 : styles de base
+
+**Date :** 03/11/2026
+
+**Objectif :** régler ce qui s'applique à toute la page avant de styler chaque zone.
+
+**Ce qui a été fait :**
+
+- Dans `css/style.css`, ajout d'une section « Base » :
+  - `box-sizing: border-box` sur tous les éléments ;
+  - `body` : suppression de la marge par défaut, police du texte, taille 17px, interligne 1.47, couleur du texte et du fond ;
+  - titres `h1`, `h2`, `h3` : police d'affichage, graisse 600, interligne serré ;
+  - paragraphes : marge du bas uniforme ;
+  - liens : bleu principal, et contour bleu visible en navigation au clavier (`:focus-visible`).
+
+**Problèmes et solutions :**
+
+- **Problème :** l'extension Claude pour Chrome n'était pas connectée, donc les captures d'écran de vérification n'ont pas pu être faites par Claude.
+- **Solution :** à faire : reconnecter l'extension, ou vérifier moi-même l'affichage via Live Server.
+
+**Décisions :**
+
+- Les tailles des titres seront réglées zone par zone (héros, présentation, cartes) aux étapes suivantes.
+- Les liens restent soulignés pour l'instant : un lien ne doit pas se reconnaître seulement à sa couleur (accessibilité).
+- Le contour de focus n'apparaît qu'au clavier (`:focus-visible`), comme le prévoit `DESIGN.md`.
+
+**Ce que j'ai appris :**
+
+- Le navigateur ajoute une marge par défaut autour de la page : `margin: 0` sur `body` la supprime.
+- Avec `box-sizing: border-box`, la largeur d'un élément inclut ses marges intérieures et sa bordure.
+- `:focus-visible` cible un élément sélectionné au clavier, ce qui aide les personnes qui ne se servent pas d'une souris.
