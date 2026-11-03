@@ -350,3 +350,32 @@ Ce journal retrace chaque étape de la création de mon portfolio : ce qui a ét
 - Un chemin comme `href="style.css"` est relatif : il cherche le fichier dans le même dossier que la page. Il faut écrire `css/style.css` si le fichier est dans un sous-dossier.
 - `aria-label` et `aria-current` donnent des informations aux lecteurs d'écran sans rien changer à l'affichage.
 - Un serveur web local (Live Server) envoie les fichiers au navigateur en HTTP, comme le fera GitHub Pages.
+
+---
+
+## Étape 14 : variables CSS
+
+**Date :** 03/11/2026
+
+**Objectif :** commencer le CSS en traduisant les valeurs de `DESIGN.md` en variables, avant de styler la page étape par étape.
+
+**Ce qui a été fait :**
+
+- Dans `css/style.css`, déclaration de variables dans `:root` : couleurs (un seul bleu pour les éléments cliquables, couleurs de texte et de fond), polices, espacements, arrondis et largeur maximale du contenu.
+- Aucun changement visible à l'écran : les variables ne sont pas encore utilisées.
+
+**Problèmes et solutions :** Aucun.
+
+**Décisions :**
+
+- Des noms de variables en français (`--couleur-principale`, `--fond-parchemin`…), pour respecter la convention du projet et rester lisibles.
+- Seulement les valeurs utiles à mon site : les éléments que je n'ai pas (recherche, configurateur…) sont laissés de côté.
+- La police du système (`system-ui`), sans police à télécharger, pour respecter la règle « aucune dépendance ».
+- Une largeur maximale de 980px, prévue par `DESIGN.md` pour les pages riches en texte.
+- Le gris `#7a7a7a` n'est pas repris : sur le fond `#f5f5f7`, son contraste (environ 4:1) est sous le minimum d'accessibilité de 4,5:1 pour du petit texte.
+
+**Ce que j'ai appris :**
+
+- Une variable CSS se déclare avec deux tirets (`--nom: valeur;`) et s'utilise avec `var(--nom)`.
+- `:root` représente toute la page : une variable déclarée là est utilisable partout.
+- Avec des variables, on change une couleur à un seul endroit au lieu de la chercher dans tout le fichier.

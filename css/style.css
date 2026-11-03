@@ -1,0 +1,47 @@
+/* ==========================================================
+   Feuille de style du portfolio
+   Les valeurs viennent de DESIGN.md
+   ========================================================== */
+
+/* ---------- 1. Variables (les « ingrédients » du design) ---------- */
+:root {
+    /* Couleurs : un seul bleu pour tout ce qui est cliquable */
+    --couleur-principale: #0066cc;        /* liens et boutons sur fond clair */
+    --couleur-focus: #0071e3;             /* contour au clavier */
+    --couleur-principale-sombre: #2997ff; /* liens sur fond sombre */
+
+    /* Couleurs du texte */
+    --texte: #1d1d1f;                     /* texte sur fond clair */
+    --texte-sur-sombre: #ffffff;          /* texte sur fond sombre */
+    --texte-attenue-sombre: #cccccc;      /* texte secondaire sur fond sombre */
+    --texte-pied-de-page: #333333;        /* texte du pied de page */
+
+    /* Couleurs de fond */
+    --fond-blanc: #ffffff;
+    --fond-parchemin: #f5f5f7;            /* gris très clair */
+    --fond-sombre: #272729;               /* sections sombres */
+    --fond-noir: #000000;                 /* barre de navigation */
+    --bordure: #e0e0e0;                   /* bordure fine des cartes */
+
+    /* Polices : celle du système, aucune police à télécharger */
+    --police-titres: "SF Pro Display", system-ui, -apple-system, sans-serif;
+    --police-texte: "SF Pro Text", system-ui, -apple-system, sans-serif;
+
+    /* Espacements */
+    --espace-xxs: 4px;
+    --espace-xs: 8px;
+    --espace-sm: 12px;
+    --espace-md: 17px;
+    --espace-lg: 24px;
+    --espace-xl: 32px;
+    --espace-xxl: 48px;
+    --espace-section: 80px;
+
+    /* Arrondis */
+    --arrondi-sm: 8px;
+    --arrondi-lg: 18px;                   /* cartes */
+    --arrondi-pilule: 9999px;             /* boutons */
+
+    /* Largeur maximale du contenu */
+    --largeur-max: 980px;
+}
