@@ -140,3 +140,78 @@ a:focus-visible {
     text-decoration: underline;
     text-underline-offset: 4px;
 }
+
+/* ---------- 4. Héros (première section de l'accueil) ---------- */
+
+/* Tuile claire : fond blanc, contenu centré, beaucoup d'espace autour */
+.heros {
+    padding: var(--espace-section) var(--espace-lg);
+    background-color: var(--fond-blanc);
+    text-align: center;
+}
+
+/* Grand titre : lettres légèrement resserrées, comme le prévoit DESIGN.md */
+.heros h1 {
+    font-size: 56px;
+    line-height: 1.07;
+    letter-spacing: -0.28px;
+}
+
+/* Accroche : plus grande que le texte courant, largeur limitée pour la lecture */
+.accroche {
+    max-width: var(--largeur-max);
+    margin: 0 auto var(--espace-xl);    /* auto à gauche et à droite = centré */
+    font-size: 28px;
+    line-height: 1.14;
+}
+
+/* Les deux boutons côte à côte, centrés, et l'un sous l'autre si la place manque */
+.boutons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--espace-sm);
+}
+
+/* Forme commune des boutons : une pilule */
+.bouton {
+    display: inline-block;
+    padding: 11px 22px;
+    border: 1px solid var(--couleur-principale);
+    border-radius: var(--arrondi-pilule);
+    text-decoration: none;
+}
+
+/* Bouton principal : bleu plein, texte blanc */
+.bouton-principal {
+    background-color: var(--couleur-principale);
+    color: var(--texte-sur-sombre);
+}
+
+/* Bouton secondaire : contour bleu, fond transparent */
+.bouton-secondaire {
+    background-color: transparent;
+    color: var(--couleur-principale);
+}
+
+/* Écrans moyens (tablette, petit ordinateur) : titre réduit */
+@media (max-width: 1068px) {
+    .heros h1 {
+        font-size: 40px;
+    }
+}
+
+/* Téléphones : titre, accroche et espaces réduits */
+@media (max-width: 640px) {
+    .heros {
+        padding: var(--espace-xxl) var(--espace-lg);
+    }
+
+    .heros h1 {
+        font-size: 34px;
+    }
+
+    .accroche {
+        font-size: 21px;
+    }
+}

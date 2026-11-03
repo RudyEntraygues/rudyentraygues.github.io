@@ -453,3 +453,44 @@ Ce journal retrace chaque étape de la création de mon portfolio : ce qui a ét
 - Une zone cliquable doit mesurer au moins 44px de haut pour être facile à toucher au doigt.
 - Un défaut peut être invisible sur ordinateur et n'apparaître que sur mobile : il faut toujours vérifier les deux largeurs.
 - Dans Chrome, l'outil Inspecter (F12) a un mode téléphone (Ctrl+Maj+M) qui sert à tester l'affichage mobile.
+
+---
+
+## Étape 17 : section héros et boutons
+
+**Date :** 03/11/2026
+
+**Objectif :** mettre en forme la première section de l'accueil : grand titre, accroche et deux boutons.
+
+**Ce qui a été fait :**
+
+- Dans `css/style.css`, ajout d'une section « Héros » :
+  - `.heros` : fond blanc, contenu centré, 80px d'espace en haut et en bas ;
+  - titre `h1` en 56px avec des lettres légèrement resserrées ;
+  - `.accroche` en 28px, avec une largeur limitée et centrée ;
+  - `.boutons` : les deux boutons côte à côte, centrés, qui passent l'un sous l'autre si la place manque ;
+  - `.bouton` : forme de pilule commune, avec `.bouton-principal` (bleu plein, texte blanc) et `.bouton-secondaire` (contour bleu, fond transparent).
+- Deux media queries pour le responsive :
+  - jusqu'à 1068px : titre en 40px ;
+  - jusqu'à 640px : titre en 34px, accroche en 21px, espace réduit à 48px.
+- Vérification dans Chrome via Live Server à trois largeurs :
+  - téléphone (400px) : titre sur 2 lignes, boutons côte à côte de 49px de haut ;
+  - ordinateur (982px) : titre en 40px ;
+  - grand écran (1280px) : titre en 56px.
+  - Dans les trois cas, il n'y a pas de défilement horizontal, et le contour bleu apparaît au clavier sur les boutons.
+
+**Problèmes et solutions :** Aucun.
+
+**Décisions :**
+
+- Une classe `.bouton` pour la forme commune, et une classe par variante pour les couleurs : la pilule n'est écrite qu'une fois.
+- Le bouton principal a aussi une bordure de 1px, de la même couleur que son fond, pour que les deux boutons aient exactement la même taille.
+- Deux paliers de taille de titre au lieu des trois de `DESIGN.md` : en 34px, le titre tient déjà sur 2 lignes sur un téléphone.
+- L'effet au clic sur les boutons est reporté à l'étape des animations.
+
+**Ce que j'ai appris :**
+
+- Une media query (`@media (max-width: 640px) { … }`) applique des règles seulement sur les écrans assez étroits : c'est la base du responsive.
+- `margin: 0 auto` centre horizontalement un bloc qui a une largeur maximale.
+- On peut combiner plusieurs classes sur un même élément (`class="bouton bouton-principal"`) pour partager une base commune et ajouter des variantes.
+- `border-radius` avec une très grande valeur donne une forme de pilule.
