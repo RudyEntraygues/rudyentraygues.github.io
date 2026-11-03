@@ -605,3 +605,42 @@ Ce journal retrace chaque étape de la création de mon portfolio : ce qui a ét
 - `display: grid` avec `grid-template-columns: repeat(4, 1fr)` crée 4 colonnes de même largeur ; `1fr` signifie « une part de l'espace disponible ».
 - `gap` règle l'espace entre les éléments d'une grille (ou d'un flex), sans ajouter de marge sur les bords.
 - Dans une carte en `flex-direction: column`, `flex-grow: 1` sur le texte le fait grandir pour remplir la place libre, ce qui pousse le lien tout en bas.
+
+---
+
+## Étape 21 : pied de page
+
+**Date :** 03/11/2026
+
+**Objectif :** mettre en forme le pied de page, présent sur toutes les pages.
+
+**Ce qui a été fait :**
+
+- Dans `css/style.css`, ajout d'une section « Pied de page » :
+  - `.pied-de-page` : fond parchemin, ligne fine en haut, texte `#333333` en 14px, centré, 32px d'espace en haut et en bas ;
+  - disposition en `flex` avec `flex-wrap` : le copyright est seul sur sa ligne (`flex-basis: 100%`) et les 3 liens (GitHub, LinkedIn, Mentions légales) sont côte à côte en dessous ;
+  - marge intérieure verticale sur les liens pour agrandir la zone cliquable.
+- Vérification dans Chrome via Live Server, sur l'accueil et sur `mentions-legales.html` :
+  - ordinateur (1536px) : pied de page de 130px de haut, les 3 liens sur une ligne, chacun de 37px de haut ;
+  - téléphone (390px) : le copyright passe sur 2 lignes bien serrées, les liens se placent sur 2 lignes (2 + 1), centrés ;
+  - il n'y a pas de défilement horizontal.
+
+**Problèmes et solutions :**
+
+- **Problème :** l'ajout du CSS a d'abord échoué, car `css/style.css` avait été reformaté avec une indentation de 2 espaces au lieu de 4 (sans doute par un formateur automatique de VS Code à l'enregistrement).
+- **Solution :** relecture du fichier, puis écriture de la nouvelle section avec 2 espaces, pour rester cohérent.
+- **Problème :** dans la première version (liens l'un sous l'autre, avec l'interligne de 2.41 prévu par `DESIGN.md`), le copyright passait sur 2 lignes sur téléphone avec un grand trou entre elles.
+- **Solution :** j'ai choisi de placer les liens côte à côte avec un interligne normal : le pied de page est plus discret, et le défaut disparaît.
+
+**Décisions :**
+
+- Une ligne fine en haut du pied de page, car les cartes juste au-dessus ont le même fond parchemin.
+- Les liens côte à côte plutôt que l'un sous l'autre, pour un pied de page moins épais et plus discret.
+- Je m'écarte de `DESIGN.md` : texte en 14px au lieu de 12px, interligne normal au lieu de 2.41, 32px d'espace au lieu de 64px.
+- Tout en CSS, sans modifier le HTML des deux pages.
+
+**Ce que j'ai appris :**
+
+- `flex-basis: 100%` force un élément d'un flex à occuper toute une ligne : les éléments suivants passent dessous.
+- Un grand interligne convient à une liste de liens, mais pas à une phrase qui passe sur plusieurs lignes.
+- Un formateur automatique peut modifier un fichier à l'enregistrement : il faut le relire avant de le modifier à nouveau.

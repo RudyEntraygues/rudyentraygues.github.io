@@ -323,3 +323,35 @@ a:focus-visible {
     grid-template-columns: 1fr;
   }
 }
+
+/* ---------- 7. Pied de page ---------- */
+
+/* Même fond que les cartes : une ligne fine marque la séparation.
+   flex + flex-wrap : les liens se placent côte à côte et passent à la ligne si besoin */
+.pied-de-page {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--espace-xs) var(--espace-lg);   /* 8px entre les lignes, 24px entre les liens */
+  padding: var(--espace-xl) var(--espace-lg);
+  border-top: 1px solid var(--bordure);
+  background-color: var(--fond-parchemin);
+  color: var(--texte-pied-de-page);
+  font-size: 14px;
+  text-align: center;
+}
+
+.pied-de-page p {
+  margin: 0;
+}
+
+/* Le copyright prend toute la largeur : il reste seul sur sa ligne, au-dessus des liens */
+.pied-de-page p:first-child {
+  flex-basis: 100%;
+}
+
+/* Marge intérieure verticale : zone cliquable plus haute sans épaissir le pied de page */
+.pied-de-page a {
+  display: inline-block;
+  padding: var(--espace-xs) 0;
+}
