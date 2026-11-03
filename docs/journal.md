@@ -494,3 +494,39 @@ Ce journal retrace chaque étape de la création de mon portfolio : ce qui a ét
 - `margin: 0 auto` centre horizontalement un bloc qui a une largeur maximale.
 - On peut combiner plusieurs classes sur un même élément (`class="bouton bouton-principal"`) pour partager une base commune et ajouter des variantes.
 - `border-radius` avec une très grande valeur donne une forme de pilule.
+
+---
+
+## Étape 18 : passage du bleu au vert
+
+**Date :** 03/11/2026
+
+**Objectif :** remplacer le bleu repris de `DESIGN.md` par du vert, pour donner au site une couleur qui me soit propre.
+
+**Ce qui a été fait :**
+
+- Choix des trois verts avec Claude (chat), puis vérification des contrastes par Claude Code :
+
+  | Rôle | Avant | Après | Contraste |
+  |---|---|---|---|
+  | Liens et boutons sur fond clair | `#0066cc` | `#00783c` | 5,6:1 sur blanc (et texte blanc sur ce vert) |
+  | Contour au clavier | `#0071e3` | `#008643` | 5,1:1 sur blanc, 4,1:1 sur la barre noire |
+  | Liens sur fond sombre | `#2997ff` | `#00ab56` | 4,9:1 sur `#272729` |
+
+- `DESIGN.md` : remplacement des trois codes couleur, des noms de couleurs (« Action Blue » devient « Action Green »…) et du mot « blue » dans les phrases. Le reste du fichier n'a pas changé.
+- `css/style.css` : changement des trois valeurs dans `:root`, et du mot « bleu » dans les commentaires.
+- Vérification dans Chrome via Live Server, en largeur ordinateur (982px) et téléphone (390px) : boutons, liens et contour au clavier sont verts, sans défilement horizontal.
+
+**Problèmes et solutions :** Aucun.
+
+**Décisions :**
+
+- Garder `DESIGN.md` tel quel en dehors des couleurs : il reste la référence pour la suite du design.
+- Ne pas renommer les variables CSS : leurs noms (`--couleur-principale`…) décrivent un rôle, pas une couleur, donc ils restent justes avec le vert.
+- Faire deux commits séparés : un pour `DESIGN.md` (documentation), un pour le CSS (changement visible).
+
+**Ce que j'ai appris :**
+
+- Grâce aux variables CSS, changer la couleur de tout le site n'a demandé que trois lignes.
+- Il vaut mieux nommer une variable selon son rôle (`--couleur-principale`) plutôt que selon sa couleur (`--bleu`) : le nom reste valable si la couleur change.
+- Il faut vérifier le contraste d'une nouvelle couleur avant de l'adopter : le texte doit atteindre au moins 4,5:1, et un contour au moins 3:1.

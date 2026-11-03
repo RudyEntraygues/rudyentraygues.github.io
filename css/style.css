@@ -5,10 +5,10 @@
 
 /* ---------- 1. Variables (les « ingrédients » du design) ---------- */
 :root {
-    /* Couleurs : un seul bleu pour tout ce qui est cliquable */
-    --couleur-principale: #0066cc;        /* liens et boutons sur fond clair */
-    --couleur-focus: #0071e3;             /* contour au clavier */
-    --couleur-principale-sombre: #2997ff; /* liens sur fond sombre */
+    /* Couleurs : un seul vert pour tout ce qui est cliquable */
+    --couleur-principale: #00783c;        /* liens et boutons sur fond clair */
+    --couleur-focus: #008643;             /* contour au clavier */
+    --couleur-principale-sombre: #00ab56; /* liens sur fond sombre */
 
     /* Couleurs du texte */
     --texte: #1d1d1f;                     /* texte sur fond clair */
@@ -80,7 +80,7 @@ p {
     margin: 0 0 var(--espace-md);
 }
 
-/* Liens : le bleu principal, le seul bleu « cliquable » */
+/* Liens : le vert principal, le seul vert « cliquable » */
 a {
     color: var(--couleur-principale);
 }
@@ -182,13 +182,13 @@ a:focus-visible {
     text-decoration: none;
 }
 
-/* Bouton principal : bleu plein, texte blanc */
+/* Bouton principal : vert plein, texte blanc */
 .bouton-principal {
     background-color: var(--couleur-principale);
     color: var(--texte-sur-sombre);
 }
 
-/* Bouton secondaire : contour bleu, fond transparent */
+/* Bouton secondaire : contour vert, fond transparent */
 .bouton-secondaire {
     background-color: transparent;
     color: var(--couleur-principale);

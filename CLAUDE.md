@@ -37,7 +37,7 @@ C'est le mien : je m'appelle Rudy, je suis en BTS SIO et je prépare mon épreuv
 
 - Le contenu et les commentaires doivent être en français.
 - Les noms de fichiers et de dossiers sont toujours en minuscules, avec des tirets '-' et jamais d'espace.
-  - Exceptions : `CLAUDE.md`, `README.md`, et `index.html` (obligatoire pour la page d'accueil sur GitHub Pages).
+  - Exceptions : `CLAUDE.md`, `README.md`, et `DESIGN.MD` (en majuscule par convention).
 - Structure des dossiers :
   - `css/` pour les feuilles de style
   - `js/` pour les scripts
@@ -60,7 +60,14 @@ C'est le mien : je m'appelle Rudy, je suis en BTS SIO et je prépare mon épreuv
 - Quand tu effectues un travail, fais-moi un résumé de ce que tu as fait en m'expliquant point par point.
 - Vérifie toujours ton travail avant de me le rendre : erreurs, bugs, incohérences, bugs graphiques.
 - Pour vérifier l'affichage, ouvre le site dans Chrome et fais des captures d'écran en largeur mobile et en largeur ordinateur.
-- Tu peux me proposer un message de commit en adoptant la convention « Conventional Commits »
+- Tu peux me proposer un message de commit en suivant la convention « Conventional Commits ». Choix du type :
+  - `feat` : tout ajout ou changement visible pour le visiteur, y compris la mise en forme CSS (couleurs, tailles, mise en page) ;
+  - `fix` : la correction d'un bug, y compris un défaut d'affichage ;
+  - `style` : uniquement la mise en forme du code (indentation, espaces, ordre des propriétés), sans aucun effet visible ;
+  - `refactor` : une réorganisation du code sans changement visible ;
+  - `docs` : la documentation (journal, README, DESIGN.md) ;
+  - `chore` : la configuration du projet (CLAUDE.md, .gitignore, .claude/settings.json).
+- Un commit = une seule intention. Si le message a besoin de « et » ou de « + », propose plusieurs commits.
 
 ## Documentation
 
