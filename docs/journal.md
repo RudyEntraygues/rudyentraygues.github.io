@@ -188,7 +188,7 @@ Ce journal retrace chaque étape de la création de mon portfolio : ce qui a ét
 
 ---
 
-## Étape 8 : ajout du système de design `DESIGN.md`
+## Étape 9 : ajout du système de design `DESIGN.md`
 
 **Date :** 03/11/2026
 
@@ -208,3 +208,30 @@ Ce journal retrace chaque étape de la création de mon portfolio : ce qui a ét
 **Ce que j'ai appris :**
 
 - Un système de design regroupe toutes les règles visuelles au même endroit : on peut ensuite les traduire en variables CSS.
+
+---
+
+## Étape 10 : création de l'arborescence du site
+
+**Date :** 03/11/2026
+
+**Objectif :** mettre en place les dossiers et les fichiers du site, encore vides, avant d'écrire le contenu.
+
+**Ce qui a été fait :**
+
+- Création de six pages HTML vides à la racine : `index.html` (accueil), `mon-parcours.html`, `competences.html`, `projets.html`, `veille.html` et `contact.html`.
+- Création des dossiers `css/`, `js/` et `images/`.
+- Création d'une feuille de style unique `css/style.css` et d'un script unique `js/script.js`, vides.
+- Ajout d'un fichier vide `images/.gitkeep`.
+
+**Décisions :**
+
+- Les pages sont à la racine, à côté de `index.html` : les liens entre pages restent simples (`href="projets.html"`).
+- Une seule feuille de style et un seul script pour tout le site : plus facile à retrouver et à maintenir.
+- La page « À propos » s'appelle finalement `mon-parcours.html`, nom plus parlant pour un portfolio de BTS.
+- Une page de contact avec des liens seulement, sans formulaire, car un formulaire ne fonctionne pas seul sur un site statique.
+
+**Ce que j'ai appris :**
+
+- Git n'enregistre pas les dossiers vides : le fichier `.gitkeep` sert seulement à garder le dossier `images/` dans le dépôt. On pourra le supprimer quand il contiendra de vraies images.
+- GitHub Pages affiche automatiquement `index.html` quand on visite l'adresse du site.
