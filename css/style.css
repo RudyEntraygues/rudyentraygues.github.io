@@ -215,3 +215,45 @@ a:focus-visible {
         font-size: 21px;
     }
 }
+
+/* ---------- 5. Présentation (section sombre) ---------- */
+
+/* Tuile sombre : le changement de fond sépare cette section du héros */
+.presentation {
+    padding: var(--espace-section) var(--espace-lg);
+    background-color: var(--fond-sombre);
+    color: var(--texte-sur-sombre);
+    text-align: center;
+}
+
+.presentation h2 {
+    font-size: 40px;
+}
+
+/* Paragraphe plus grand et plus aéré, largeur limitée pour la lecture */
+.presentation p {
+    max-width: 760px;
+    margin: 0 auto;
+    font-size: 21px;
+    line-height: 1.5;
+}
+
+/* Sur fond sombre, les liens utilisent le vert clair (prévu pour la suite) */
+.presentation a {
+    color: var(--couleur-principale-sombre);
+}
+
+/* Téléphones : moins d'espace, titre et texte réduits */
+@media (max-width: 640px) {
+    .presentation {
+        padding: var(--espace-xxl) var(--espace-lg);
+    }
+
+    .presentation h2 {
+        font-size: 28px;
+    }
+
+    .presentation p {
+        font-size: 17px;
+    }
+}

@@ -530,3 +530,38 @@ Ce journal retrace chaque étape de la création de mon portfolio : ce qui a ét
 - Grâce aux variables CSS, changer la couleur de tout le site n'a demandé que trois lignes.
 - Il vaut mieux nommer une variable selon son rôle (`--couleur-principale`) plutôt que selon sa couleur (`--bleu`) : le nom reste valable si la couleur change.
 - Il faut vérifier le contraste d'une nouvelle couleur avant de l'adopter : le texte doit atteindre au moins 4,5:1, et un contour au moins 3:1.
+
+---
+
+## Étape 19 : section de présentation (tuile sombre)
+
+**Date :** 03/11/2026
+
+**Objectif :** mettre en forme la section « Ce que je fais » en tuile sombre, pour créer une alternance avec le héros clair.
+
+**Ce qui a été fait :**
+
+- Dans `css/style.css`, ajout d'une section « Présentation » :
+  - `.presentation` : fond `#272729`, texte blanc, contenu centré, 80px d'espace en haut et en bas ;
+  - titre `h2` en 40px ;
+  - paragraphe en 21px avec un interligne de 1.5, et une largeur limitée à 760px ;
+  - règle pour les futurs liens de cette section, en vert clair (`--couleur-principale-sombre`).
+- Media query jusqu'à 640px : espace réduit à 48px, titre en 28px, texte en 17px.
+- Vérification dans Chrome via Live Server :
+  - ordinateur (1536px) : titre en 40px, texte en 21px sur 3 lignes de 760px maximum ;
+  - téléphone (390px) : titre en 28px, texte en 17px ;
+  - il n'y a pas de défilement horizontal, et aucun espace blanc entre le héros et la section sombre.
+
+**Problèmes et solutions :** Aucun.
+
+**Décisions :**
+
+- Paragraphe en 21px plutôt que les 28px prévus par `DESIGN.md` sous les titres des tuiles : ce paragraphe fait plusieurs lignes, et une taille plus petite se lit mieux.
+- Largeur du paragraphe limitée à 760px : un texte centré devient difficile à lire si les lignes sont trop longues.
+- Pas de bordure entre les sections : le passage du fond blanc au fond sombre suffit à les séparer.
+
+**Ce que j'ai appris :**
+
+- Sur un fond sombre, il faut changer la couleur du texte (blanc) et celle des liens (un vert plus clair), sinon ils deviennent illisibles.
+- Une règle CSS peut cibler un élément à l'intérieur d'un autre, par exemple `.presentation h2` pour le titre de cette section seulement.
+- Le blanc sur `#272729` a un contraste d'environ 14:1, très au-dessus du minimum de 4,5:1.
