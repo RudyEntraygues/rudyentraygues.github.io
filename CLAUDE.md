@@ -31,6 +31,7 @@ C'est le mien : je m'appelle Rudy, je suis en BTS SIO et je prépare mon épreuv
 - Le site doit être responsive (mobile et ordinateur).
 - Le site doit être accessible (textes alternatifs sur les images, contrastes suffisants, titres hiérarchisés).
 - Le site doit fonctionner sur les navigateurs récents (Chrome, Firefox, Edge).
+- pour toute tâche qui touche à l’apparence, lis d’abord DESIGN.md et respecte-le
 
 ## Conventions
 
