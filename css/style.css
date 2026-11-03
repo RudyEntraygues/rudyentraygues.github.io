@@ -90,3 +90,53 @@ a:focus-visible {
     outline: 2px solid var(--couleur-focus);
     outline-offset: 2px;
 }
+
+/* ---------- 3. En-tête et menu ---------- */
+
+/* Barre noire en haut de page. flex = les éléments se placent en ligne ;
+   flex-wrap = ils passent à la ligne s'il n'y a plus de place (mobile) */
+.en-tete {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;     /* nom à gauche, menu à droite */
+    gap: 0 var(--espace-lg);
+    padding: 0 var(--espace-lg);
+    background-color: var(--fond-noir);
+}
+
+/* Mon nom, en lien vers l'accueil */
+.logo {
+    display: inline-block;
+    padding: var(--espace-sm) 0;        /* même hauteur que les liens du menu */
+    color: var(--texte-sur-sombre);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* La liste du menu : sans puces, en ligne */
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 var(--espace-lg);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* Les liens du menu : blancs, sans soulignement.
+   Les marges intérieures donnent une zone cliquable d'au moins 44px de haut */
+.menu a {
+    display: inline-block;
+    padding: var(--espace-sm) 0;
+    color: var(--texte-sur-sombre);
+    font-size: 14px;
+    text-decoration: none;
+}
+
+/* La page en cours est soulignée : on sait où on est sans se fier à la couleur */
+.menu a[aria-current="page"] {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}

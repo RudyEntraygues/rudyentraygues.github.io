@@ -399,8 +399,8 @@ Ce journal retrace chaque étape de la création de mon portfolio : ce qui a ét
 
 **Problèmes et solutions :**
 
-- **Problème :** l'extension Claude pour Chrome n'était pas connectée, donc les captures d'écran de vérification n'ont pas pu être faites par Claude.
-- **Solution :** à faire : reconnecter l'extension, ou vérifier moi-même l'affichage via Live Server.
+- **Problème :** l'extension Claude pour Chrome n'était pas connectée, donc Claude ne pouvait pas faire les captures d'écran de vérification.
+- **Solution :** reconnexion de l'extension et relance de Live Server, puis vérification de l'affichage, faite en même temps que l'étape 16.
 
 **Décisions :**
 
@@ -413,3 +413,43 @@ Ce journal retrace chaque étape de la création de mon portfolio : ce qui a ét
 - Le navigateur ajoute une marge par défaut autour de la page : `margin: 0` sur `body` la supprime.
 - Avec `box-sizing: border-box`, la largeur d'un élément inclut ses marges intérieures et sa bordure.
 - `:focus-visible` cible un élément sélectionné au clavier, ce qui aide les personnes qui ne se servent pas d'une souris.
+
+---
+
+## Étape 16 : en-tête et menu de navigation
+
+**Date :** 03/11/2026
+
+**Objectif :** mettre en forme la barre du haut, présente sur toutes les pages.
+
+**Ce qui a été fait :**
+
+- Dans `css/style.css`, ajout d'une section « En-tête et menu » :
+  - `.en-tete` : barre noire, avec mon nom à gauche et le menu à droite (`display: flex`) ;
+  - `.logo` : mon nom en blanc, 14px, graisse 600, sans soulignement ;
+  - `.menu` : liste sans puces, liens en ligne ;
+  - `.menu a` : liens blancs en 14px, sans soulignement, avec une zone cliquable d'au moins 44px de haut ;
+  - la page en cours (`aria-current="page"`) est soulignée.
+- Vérification dans Chrome via Live Server, en largeur ordinateur et en vue téléphone (400px).
+
+**Problèmes et solutions :**
+
+- **Problème :** en vue téléphone, mon nom était collé tout en haut de la barre noire. Sur mobile, il se retrouve seul sur sa ligne, et contrairement aux liens du menu, il n'avait pas de marge intérieure.
+- **Solution :** ajout de `display: inline-block` et `padding: var(--espace-sm) 0` sur `.logo`, comme pour les liens du menu. Mon nom a maintenant de l'air au-dessus, et sa zone cliquable fait 45px de haut.
+- **Problème :** Claude n'arrivait pas à réduire la fenêtre de Chrome pour tester l'affichage mobile.
+- **Solution :** j'ai activé la vue téléphone dans l'outil Inspecter de Chrome.
+
+**Décisions :**
+
+- Pas de menu « hamburger » dans la V1 : sur mobile, les liens passent à la ligne grâce à `flex-wrap: wrap`. Cela fonctionne sans JavaScript et reste accessible. Un hamburger pourra être ajouté plus tard.
+- Liens du menu en 14px au lieu des 12px prévus par `DESIGN.md`, pour qu'ils restent lisibles, surtout sur mobile.
+- La page en cours est signalée par un soulignement, et pas seulement par une couleur.
+
+**Ce que j'ai appris :**
+
+- `display: flex` place les éléments enfants en ligne ; `justify-content: space-between` les écarte aux deux bouts.
+- `flex-wrap: wrap` permet aux éléments de passer à la ligne quand la place manque : c'est une façon simple d'adapter un menu au mobile.
+- Un sélecteur d'attribut comme `a[aria-current="page"]` cible les éléments qui ont cet attribut.
+- Une zone cliquable doit mesurer au moins 44px de haut pour être facile à toucher au doigt.
+- Un défaut peut être invisible sur ordinateur et n'apparaître que sur mobile : il faut toujours vérifier les deux largeurs.
+- Dans Chrome, l'outil Inspecter (F12) a un mode téléphone (Ctrl+Maj+M) qui sert à tester l'affichage mobile.
