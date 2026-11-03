@@ -69,5 +69,6 @@ Tu tiens une documentation de chaque étape dans `docs/journal.md`, rédigée so
 - la date ;
 - l'objectif de l'étape ;
 - ce qui a été fait ;
+- les problèmes rencontrés et leurs solutions (rubrique « Problèmes et solutions », avec « Aucun » s'il n'y en a pas) ;
 - les décisions prises et pourquoi ;
 - ce que j'ai appris.

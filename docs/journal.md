@@ -16,6 +16,8 @@ Ce journal retrace chaque étape de la création de mon portfolio : ce qui a ét
 - Le dépôt était encore vide (seulement un `.gitignore`), donc le fichier généré était très court.
 - J'ai ensuite réécrit `CLAUDE.md` moi-même avec mes propres règles : objectif du projet, rôle de Claude, technologies, conventions, sécurité, méthode et documentation.
 
+**Problèmes et solutions :** Aucun.
+
 **Décisions :**
 
 - Site statique en HTML, CSS et JavaScript, sans dépendance, hébergé sur GitHub Pages.
@@ -37,6 +39,8 @@ Ce journal retrace chaque étape de la création de mon portfolio : ce qui a ét
 
 - Relecture du `.gitignore` : il protégeait bien `.env` et les fichiers système Windows, mais ne protégeait plus le fichier de réglages personnels de Claude Code.
 - Relecture de `CLAUDE.md` : fautes d'orthographe, listes non formatées en Markdown, règles Git incomplètes, phrase sur les secrets ambiguë, informations manquantes (niveau, option, URL, exigences de qualité).
+
+**Problèmes et solutions :** Aucun.
 
 **Décisions :**
 
@@ -62,10 +66,12 @@ Ce journal retrace chaque étape de la création de mon portfolio : ce qui a ét
 - `CLAUDE.md` : correction des fautes, mise en listes à puces, ajout d'une section « Exigences de qualité » (responsive, accessibilité, navigateurs), de la structure des dossiers, des règles sur les données personnelles et du format du journal.
 - J'ai ensuite complété moi-même les informations manquantes : option **SISR**, niveau **débutant**, URL **rudyentraygues.github.io**.
 
+**Problèmes et solutions :** Aucun.
+
 **Décisions :**
 
 - Convention de nommage : minuscules et **tirets `-`** (plutôt que des tirets bas), comme c'est l'usage sur le web.
-- Exceptions à la convention : `CLAUDE.md`, `README.md` et `index.html`.
+- Exceptions à la convention : `CLAUDE.md` et `README.md`.
 
 **Ce que j'ai appris :**
 
@@ -84,6 +90,8 @@ Ce journal retrace chaque étape de la création de mon portfolio : ce qui a ét
 
 - Ouverture de `https://example.com` dans un nouvel onglet Chrome grâce à l'extension Claude, capture d'écran, analyse, puis fermeture de l'onglet.
 - L'analyse a relevé la mise en page (colonne centrée), la hiérarchie du texte et un contraste un peu faible du texte gris sur fond sombre.
+
+**Problèmes et solutions :** Aucun.
 
 **Décisions :**
 
@@ -111,6 +119,8 @@ Ce journal retrace chaque étape de la création de mon portfolio : ce qui a ét
 - Ajout, à ma demande, de `git restore`, `git stash` et `git switch` dans les interdictions.
 - J'ai ensuite modifié le fichier moi-même : la suppression de fichiers est passée en `deny` (interdite) et le déplacement (`mv`) en `ask`.
 
+**Problèmes et solutions :** Aucun.
+
 **Décisions :**
 
 - Les règles sont écrites pour Bash **et** pour PowerShell, car Claude peut utiliser les deux sur mon PC.
@@ -133,6 +143,8 @@ Ce journal retrace chaque étape de la création de mon portfolio : ce qui a ét
 
 - `CLAUDE.md` : trois nouvelles règles (pas de suppression, accord avant de modifier/créer/déplacer/renommer, accord avant d'installer ou d'exécuter), et liste des commandes Git interdites alignée sur `settings.json`.
 - `settings.json` : ajout de `Edit`, `Bash` et `PowerShell` dans la liste `ask`.
+
+**Problèmes et solutions :** Aucun.
 
 **Décisions :**
 
@@ -157,9 +169,11 @@ Ce journal retrace chaque étape de la création de mon portfolio : ce qui a ét
 - J'ai demandé à Claude Code de supprimer ce fichier.
 - Claude a refusé de lui-même, en respectant la règle de `CLAUDE.md` qui lui interdit toute suppression.
 
+**Problèmes et solutions :** Aucun.
+
 **Décisions :**
 
-- La règle d'interdiction de suppression est validée : Claude la respecte.
+- La consigne de `CLAUDE.md` est respectée, mais la règle `deny` de `settings.json` n'a pas été testée en conditions réelles, puisque Claude a refusé avant d'essayer. Elle reste un filet de sécurité, dont le chargement se vérifie avec `/permissions`.
 
 **Ce que j'ai appris :**
 
@@ -168,7 +182,38 @@ Ce journal retrace chaque étape de la création de mon portfolio : ce qui a ét
 
 ---
 
-## Étape 8 : rédaction du `README.md`
+## Étape 8 : premier envoi sur GitHub, erreur GH007
+
+**Date :** 29/10/2026
+
+**Objectif :** envoyer le dépôt sur GitHub pour la première fois.
+
+**Ce qui a été fait :**
+
+- Premier `git push` du dépôt vers GitHub, refusé, puis corrigé et renvoyé avec succès.
+
+**Problèmes et solutions :**
+
+- **Problème :** au premier `git push`, GitHub a refusé l'envoi avec l'erreur `GH007`, car les commits contenaient mon adresse e-mail personnelle et l'option de confidentialité de l'e-mail est activée sur mon compte. Rien n'a été publié.
+- **Solution :**
+  1. récupération de l'adresse noreply dans les paramètres GitHub ;
+  2. configuration de Git avec cette adresse (`git config --global user.email`) ;
+  3. correction du commit existant avec `git commit --amend --reset-author --no-edit` ;
+  4. nouvel envoi.
+
+**Décisions :**
+
+- Utiliser l'adresse noreply pour tous mes dépôts publics.
+- Ne pas désactiver la protection de GitHub.
+
+**Ce que j'ai appris :**
+
+- Chaque commit contient l'adresse e-mail de son auteur : une fois le dépôt publié, elle devient visible.
+- GitHub fournit une adresse noreply pour ne pas exposer son adresse personnelle.
+
+---
+
+## Étape 9 : rédaction du `README.md`
 
 **Date :** 30/10/2026
 
@@ -177,6 +222,8 @@ Ce journal retrace chaque étape de la création de mon portfolio : ce qui a ét
 **Ce qui a été fait :**
 
 - J'ai rédigé un `README.md` : objectif du projet (support de l'épreuve E5 et apprentissage), choix techniques, méthode de travail avec l'IA, garde-fous de sécurité, critères de qualité, structure du dépôt et feuille de route.
+
+**Problèmes et solutions :** Aucun.
 
 **Décisions :**
 
@@ -188,7 +235,35 @@ Ce journal retrace chaque étape de la création de mon portfolio : ce qui a ét
 
 ---
 
-## Étape 9 : ajout du système de design `DESIGN.md`
+## Étape 10 : conception du site avec Claude (chat)
+
+**Date :** 30/10/2026
+
+**Objectif :** réfléchir à la conception du site avec Claude (version chat) avant de commencer à coder.
+
+**Ce qui a été fait :**
+
+- Échange sur l'idée d'une animation de parcours au défilement, sur le contenu de la V1 et sur la couverture des compétences de l'épreuve E5.
+
+**Problèmes et solutions :** Aucun.
+
+**Décisions :**
+
+- L'animation de parcours au défilement (un personnage illustré qui raconte mon parcours) est **reportée à l'an prochain**, pour trois raisons :
+  - les animations CSS liées au défilement ne sont pas encore supportées par défaut sur Firefox ;
+  - l'animation ne doit pas nuire à l'accessibilité ni à la lisibilité pour le jury ;
+  - elle demande 10 à 15 h de travail supplémentaire, surtout pour les illustrations.
+- **V1** : site statique avec des animations légères, qui respectent la préférence « réduire les animations ».
+- **Couverture des compétences E5** : la compétence « Répondre aux incidents et aux demandes d'assistance » sera surtout couverte par mon alternance au support. À vérifier avec mes professeurs : un projet personnel comme mon homelab est-il accepté comme réalisation ?
+
+**Ce que j'ai appris :**
+
+- Une fonctionnalité CSS récente n'est pas forcément disponible sur tous les navigateurs : il faut vérifier sa compatibilité avant de l'utiliser.
+- Les animations doivent respecter la préférence « réduire les animations » de l'utilisateur.
+
+---
+
+## Étape 11 : ajout du système de design `DESIGN.md`
 
 **Date :** 03/11/2026
 
@@ -199,6 +274,8 @@ Ce journal retrace chaque étape de la création de mon portfolio : ce qui a ét
 - J'ai ajouté un fichier `DESIGN.md` qui décrit le style visuel : couleurs, typographie, espacements, arrondis, composants (navigation, boutons, cartes, formulaires, pied de page) et comportement responsive.
 - J'ai ajouté une ligne dans `CLAUDE.md`, section « Exigences de qualité » : pour toute tâche qui touche à l'apparence, Claude doit d'abord lire `DESIGN.md` et le respecter.
 - J'ai aussi précisé dans `CLAUDE.md` que les messages de commit proposés doivent suivre la convention **Conventional Commits**.
+
+**Problèmes et solutions :** Aucun.
 
 **Décisions :**
 
@@ -211,7 +288,7 @@ Ce journal retrace chaque étape de la création de mon portfolio : ce qui a ét
 
 ---
 
-## Étape 10 : création de l'arborescence du site
+## Étape 12 : création de l'arborescence du site
 
 **Date :** 03/11/2026
 
@@ -223,6 +300,8 @@ Ce journal retrace chaque étape de la création de mon portfolio : ce qui a ét
 - Création des dossiers `css/`, `js/` et `images/`.
 - Création d'une feuille de style unique `css/style.css` et d'un script unique `js/script.js`, vides.
 - Ajout d'un fichier vide `images/.gitkeep`.
+
+**Problèmes et solutions :** Aucun.
 
 **Décisions :**
 
@@ -238,7 +317,7 @@ Ce journal retrace chaque étape de la création de mon portfolio : ce qui a ét
 
 ---
 
-## Étape 11 : structure HTML de la page d'accueil
+## Étape 13 : structure HTML de la page d'accueil
 
 **Date :** 03/11/2026
 
@@ -252,6 +331,11 @@ Ce journal retrace chaque étape de la création de mon portfolio : ce qui a ét
 - **Pied de page** : mention © 2026 et lien vers mon profil GitHub.
 - **Vérification** : la page s'affiche dans Chrome via l'extension VS Code **Live Server** (`http://127.0.0.1:5500`).
 
+**Problèmes et solutions :**
+
+- **Problème :** l'extension Chrome de Claude refuse les fichiers ouverts en `file:///`, et Python (qui aurait permis de lancer un petit serveur local) n'est pas installé.
+- **Solution :** utiliser l'extension VS Code **Live Server**, qui sert la page à l'adresse `http://127.0.0.1:5500`.
+
 **Décisions :**
 
 - Utiliser des balises sémantiques (`header`, `nav`, `main`, `section`, `article`, `footer`) pour l'accessibilité et le référencement.
@@ -259,7 +343,6 @@ Ce journal retrace chaque étape de la création de mon portfolio : ce qui a ét
 - Des liens `<a>` (et non des `<button>`) pour les boutons du héros, car ils mènent vers une autre page.
 - Des textes provisoires, que je réécrirai avec mes propres mots.
 - Aucune donnée personnelle sensible dans le pied de page : seulement un lien GitHub, qui est public.
-- Live Server pour les vérifications, car l'extension Claude refuse les fichiers ouverts en `file:///` et Python n'est pas installé.
 
 **Ce que j'ai appris :**
 
