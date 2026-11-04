@@ -644,3 +644,86 @@ Ce journal retrace chaque étape de la création de mon portfolio : ce qui a ét
 - `flex-basis: 100%` force un élément d'un flex à occuper toute une ligne : les éléments suivants passent dessous.
 - Un grand interligne convient à une liste de liens, mais pas à une phrase qui passe sur plusieurs lignes.
 - Un formateur automatique peut modifier un fichier à l'enregistrement : il faut le relire avant de le modifier à nouveau.
+
+---
+
+## Étape 22 : retirer les références à Apple de DESIGN.md
+
+**Date :** 04/11/2026
+
+**Objectif :** faire de `DESIGN.md` le système de design de mon portfolio, et non plus une analyse du site d'Apple. Corriger aussi une erreur de casse dans `CLAUDE.md`.
+
+**Ce qui a été fait :**
+
+- Dans `CLAUDE.md`, la ligne des exceptions de nommage écrit maintenant `DESIGN.md` au lieu de `DESIGN.MD`. Rien d'autre n'a changé dans ce fichier.
+- Dans `DESIGN.md` :
+  - le nom passe de `Apple-design-analysis` à `portfolio-rudy`, et la description décrit un portfolio sobre et aéré avec un seul accent vert ;
+  - toutes les mentions d'Apple et de ses produits (iPhone 17 Pro, Apple Watch, AirPods, « Apple tight », « signature Apple », logo Apple, boutons « Buy » / « Bag ») ont été réécrites pour parler du portfolio (sections, cartes de projets, contenu) ;
+  - les noms de couleur sont repassés en vert : « Action Green », « Focus Green », « Sky Link Green ».
+- Vérification avec `git diff` et des comparaisons en lecture seule avec le dernier commit :
+  - le bloc de valeurs (lignes 5 à 274 : couleurs, typographie, arrondis, espacements, composants) est identique ;
+  - aucune valeur (hex, px, em, %, rgba, ratios, interlignes) n'a disparu ni n'a été ajoutée ;
+  - les titres de sections sont les mêmes, et il y a toujours 8 règles « Do » et 8 règles « Don't » ;
+  - il ne reste aucune mention d'Apple, sauf `-apple-system` dans les piles de polices (c'est une valeur technique).
+
+**Problèmes et solutions :**
+
+- **Problème :** avant de commencer, la version non enregistrée dans Git de `DESIGN.md` était revenue aux noms « Action Blue », « blue pill »…, alors que le dernier commit disait « Green » (les tableaux avaient aussi été réalignés, sans doute par un formateur automatique de VS Code). Les valeurs hex, elles, n'avaient pas changé.
+- **Solution :** j'ai décidé de remettre les noms en « Green » pendant la réécriture, pour que les textes correspondent à ma couleur d'accent.
+
+**Décisions :**
+
+- Les noms des composants (`product-tile-light`, `store-utility-card`, `environment-quote-card`…) n'ont pas changé : ce sont des identifiants utilisés dans les références `{component.…}`, donc des valeurs.
+- La section « Note on Font Substitutes » ne cite plus Apple ni macOS/iOS : elle dit seulement que SF Pro n'est pas disponible partout.
+- Les polices `SF Pro Display` et `SF Pro Text` restent dans les valeurs. À décider plus tard : SF Pro n'existe que sur les appareils Apple, donc sur Windows et Android le site s'affiche avec la police du système (`system-ui`).
+- Le texte reste en anglais, comme le fichier d'origine.
+
+**Ce que j'ai appris :**
+
+- On peut s'inspirer d'un design existant, mais il faut le rendre personnel : un système de design ne doit pas recopier les noms et les textes d'une autre marque.
+- `-apple-system` n'est pas une mention d'Apple : c'est un mot-clé CSS qui demande au navigateur la police du système.
+- Un formateur automatique peut modifier un fichier sans prévenir : `git diff` permet de voir exactement ce qui a changé depuis le dernier commit.
+
+---
+
+## Étape 23 : nettoyage des dernières traces d'Apple dans DESIGN.md
+
+**Date :** 04/11/2026
+
+**Objectif :** retirer de `DESIGN.md` les noms encore copiés du site d'Apple, pour que ce soit vraiment mon design : inspiré d'Apple, avec une touche de vert.
+
+**Ce qui a été fait :**
+
+- Renommage des composants qui venaient de la boutique Apple, partout dans le fichier (YAML et texte) :
+
+  | Avant | Après |
+  |---|---|
+  | `product-tile-light / -parchment / -dark / -dark-2 / -dark-3` | `section-tile-…` |
+  | `store-utility-card` | `project-card` |
+  | `button-store-hero` | `button-hero` |
+  | `configurator-option-chip(-selected)` | `tag-chip(-selected)` |
+  | `environment-quote-card` | `quote-card` |
+
+- Couleurs : « Sky Link Green » (copié du « Sky Link Blue » d'Apple) devient « Light Green ». « Paper White », une couleur qui n'existait pas dans mes couleurs, est remplacée par `{colors.on-primary}`.
+- La description et l'introduction disent maintenant que c'est mon système de design, inspiré du style sobre d'Apple, avec un seul accent vert.
+- Correction de deux incohérences :
+  - le bouton secondaire avait un fond blanc dans le YAML mais un fond transparent dans le texte. Le YAML passe en `transparent`, comme dans `css/style.css` ;
+  - le texte disait que le `tagline` était parfois en graisse 700, alors que le YAML le définit en 600. Le texte dit maintenant 600.
+- Vérifications en lecture seule :
+  - plus aucun ancien nom dans le fichier ;
+  - chaque référence `{component.…}` et `{colors.…}` pointe vers un élément défini dans le YAML ;
+  - les nouveaux noms ne sont pas utilisés dans le CSS, le HTML ou le JavaScript, donc le site ne change pas.
+
+**Problèmes et solutions :** Aucun.
+
+**Décisions :**
+
+- À l'étape 22, les noms des composants avaient été gardés parce que ce sont des identifiants. Comme ils ne servent qu'à l'intérieur de `DESIGN.md`, on peut les renommer sans rien casser, à condition de les remplacer partout à la fois.
+- La police SF Pro est conservée. `-apple-system` reste aussi, car c'est un mot-clé CSS.
+- « Learn more » et les noms comme « Parchment » ou « Pearl » sont gardés : ce sont des mots courants, pas des noms de produits Apple.
+
+**Ce que j'ai appris :**
+
+- Pour renommer un identifiant, il faut le remplacer partout en même temps (définition et références), sinon des références pointent vers un élément qui n'existe plus.
+- Avant de renommer, il faut vérifier où le nom est utilisé : ici, seulement dans `DESIGN.md`, donc le site n'est pas touché.
+- Une documentation peut se contredire (YAML d'un côté, texte de l'autre) : c'est le code réel (`style.css`) qui permet de trancher.

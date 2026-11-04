@@ -37,7 +37,7 @@ C'est le mien : je m'appelle Rudy, je suis en BTS SIO et je prépare mon épreuv
 
 - Le contenu et les commentaires doivent être en français.
 - Les noms de fichiers et de dossiers sont toujours en minuscules, avec des tirets '-' et jamais d'espace.
-  - Exceptions : `CLAUDE.md`, `README.md`, et `DESIGN.MD` (en majuscule par convention).
+  - Exceptions : `CLAUDE.md`, `README.md`, et `DESIGN.md` (en majuscule par convention).
 - Structure des dossiers :
   - `css/` pour les feuilles de style
   - `js/` pour les scripts
