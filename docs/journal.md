@@ -727,3 +727,51 @@ Ce journal retrace chaque étape de la création de mon portfolio : ce qui a ét
 - Pour renommer un identifiant, il faut le remplacer partout en même temps (définition et références), sinon des références pointent vers un élément qui n'existe plus.
 - Avant de renommer, il faut vérifier où le nom est utilisé : ici, seulement dans `DESIGN.md`, donc le site n'est pas touché.
 - Une documentation peut se contredire (YAML d'un côté, texte de l'autre) : c'est le code réel (`style.css`) qui permet de trancher.
+
+---
+
+## Étape 24 : tailles de texte en `rem`
+
+**Date :** 04/11/2026
+
+**Objectif :** faire grossir le texte du site quand un visiteur augmente la taille de police dans les réglages de son navigateur (accessibilité).
+
+**Ce qui a été fait :**
+
+- Dans `css/style.css`, les 16 valeurs de `font-size` passent de `px` en `rem`, avec une base de 16px = 1rem. La valeur d'origine est notée en commentaire (par exemple `1.0625rem; /* 17px */`) :
+
+  | px | rem |
+  |---|---|
+  | 14px | 0.875rem |
+  | 17px | 1.0625rem |
+  | 21px | 1.3125rem |
+  | 28px | 1.75rem |
+  | 34px | 2.125rem |
+  | 40px | 2.5rem |
+  | 56px | 3.5rem |
+
+- Les espacements, arrondis, bordures, largeurs, `letter-spacing` et points de rupture des media queries restent en `px`.
+- Vérification dans Chrome via Live Server, en mesurant les tailles calculées par le navigateur :
+  - à taille de police par défaut, ordinateur (1536px) et téléphone (375px) : toutes les tailles sont identiques à avant, au pixel près ;
+  - avec une taille de racine de 24px (l'équivalent du réglage « Très grande ») : le texte grossit de 50 % (17px devient 25,5px, le titre passe de 56px à 84px), sans défilement horizontal. Sur téléphone, le menu passe sur plus de lignes.
+
+**Problèmes et solutions :**
+
+- **Problème :** Claude n'arrivait pas à réduire la fenêtre de Chrome à 375px (elle restait à 1536px).
+- **Solution :** affichage de la page dans un cadre (`iframe`) de 375px de large, qui se comporte comme un écran de téléphone.
+- **Problème :** le réglage « Très grande » se trouve dans `chrome://settings/fonts`, une page de Chrome que Claude ne modifie pas.
+- **Solution :** simulation en mettant temporairement `<html>` à 24px dans la page de test, sans modifier le fichier CSS. Il me reste à faire le test réel moi-même dans les réglages de Chrome.
+
+**Décisions :**
+
+- Base de 16px, car c'est la taille par défaut de tous les navigateurs : le rendu par défaut ne change pas.
+- `rem` plutôt que `em`, pour éviter que les tailles se multiplient quand des éléments sont imbriqués.
+- Pas de `font-size` sur `<html>` dans le CSS, sinon on écraserait le réglage du visiteur.
+- Les autres unités restent en `px` pour l'instant : on change une seule chose à la fois.
+
+**Ce que j'ai appris :**
+
+- `px` est une taille fixe, qui ignore le réglage de taille de police du visiteur.
+- `rem` est un multiple de la taille du texte de `<html>`, qui vient du réglage du navigateur : 1rem = 16px par défaut, 24px en « Très grande ».
+- `em` dépend de la taille du parent, donc les valeurs se multiplient quand on imbrique des éléments.
+- Pour convertir, on divise par 16 : 17px ÷ 16 = 1,0625rem.

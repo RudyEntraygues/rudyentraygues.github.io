@@ -59,7 +59,7 @@
 body {
   margin: 0; /* supprime la marge blanche ajoutée par le navigateur */
   font-family: var(--police-texte);
-  font-size: 17px; /* taille du texte courant prévue par DESIGN.md */
+  font-size: 1.0625rem; /* 17px, taille du texte courant prévue par DESIGN.md */
   line-height: 1.47;
   letter-spacing: -0.374px;
   color: var(--texte);
@@ -110,7 +110,7 @@ a:focus-visible {
   display: inline-block;
   padding: var(--espace-sm) 0; /* même hauteur que les liens du menu */
   color: var(--texte-sur-sombre);
-  font-size: 14px;
+  font-size: 0.875rem; /* 14px */
   font-weight: 600;
   text-decoration: none;
 }
@@ -131,7 +131,7 @@ a:focus-visible {
   display: inline-block;
   padding: var(--espace-sm) 0;
   color: var(--texte-sur-sombre);
-  font-size: 14px;
+  font-size: 0.875rem; /* 14px */
   text-decoration: none;
 }
 
@@ -152,7 +152,7 @@ a:focus-visible {
 
 /* Grand titre : lettres légèrement resserrées, comme le prévoit DESIGN.md */
 .heros h1 {
-  font-size: 56px;
+  font-size: 3.5rem; /* 56px */
   line-height: 1.07;
   letter-spacing: -0.28px;
 }
@@ -161,7 +161,7 @@ a:focus-visible {
 .accroche {
   max-width: var(--largeur-max);
   margin: 0 auto var(--espace-xl); /* auto à gauche et à droite = centré */
-  font-size: 28px;
+  font-size: 1.75rem; /* 28px */
   line-height: 1.14;
 }
 
@@ -197,7 +197,7 @@ a:focus-visible {
 /* Écrans moyens (tablette, petit ordinateur) : titre réduit */
 @media (max-width: 1068px) {
   .heros h1 {
-    font-size: 40px;
+    font-size: 2.5rem; /* 40px */
   }
 }
 
@@ -208,11 +208,11 @@ a:focus-visible {
   }
 
   .heros h1 {
-    font-size: 34px;
+    font-size: 2.125rem; /* 34px */
   }
 
   .accroche {
-    font-size: 21px;
+    font-size: 1.3125rem; /* 21px */
   }
 }
 
@@ -227,14 +227,14 @@ a:focus-visible {
 }
 
 .presentation h2 {
-  font-size: 40px;
+  font-size: 2.5rem; /* 40px */
 }
 
 /* Paragraphe plus grand et plus aéré, largeur limitée pour la lecture */
 .presentation p {
   max-width: 760px;
   margin: 0 auto;
-  font-size: 21px;
+  font-size: 1.3125rem; /* 21px */
   line-height: 1.5;
 }
 
@@ -250,11 +250,11 @@ a:focus-visible {
   }
 
   .presentation h2 {
-    font-size: 28px;
+    font-size: 1.75rem; /* 28px */
   }
 
   .presentation p {
-    font-size: 17px;
+    font-size: 1.0625rem; /* 17px */
   }
 }
 
@@ -268,7 +268,7 @@ a:focus-visible {
 
 .raccourcis h2 {
   margin-bottom: var(--espace-xxl);
-  font-size: 40px;
+  font-size: 2.5rem; /* 40px */
   text-align: center;
 }
 
@@ -293,7 +293,7 @@ a:focus-visible {
 }
 
 .carte h3 {
-  font-size: 21px;
+  font-size: 1.3125rem; /* 21px */
   line-height: 1.19;
 }
 
@@ -316,7 +316,7 @@ a:focus-visible {
   }
 
   .raccourcis h2 {
-    font-size: 28px;
+    font-size: 1.75rem; /* 28px */
   }
 
   .cartes {
@@ -337,7 +337,7 @@ a:focus-visible {
   border-top: 1px solid var(--bordure);
   background-color: var(--fond-parchemin);
   color: var(--texte-pied-de-page);
-  font-size: 14px;
+  font-size: 0.875rem; /* 14px */
   text-align: center;
 }
 
