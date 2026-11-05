@@ -851,3 +851,40 @@ Ce journal retrace chaque étape de la création de mon portfolio : ce qui a ét
 - Une compétence seule ne prouve rien : il faut montrer où elle a été mise en œuvre.
 - La balise `<cite>` indique le titre d'une œuvre, comme un livre.
 - Une image doit avoir un texte alternatif : c'est grâce à lui qu'un lecteur d'écran, ou un outil, peut comprendre ce qu'elle montre.
+
+---
+
+## Étape 27 : structure HTML de la page « Projets »
+
+**Date :** 05/11/2026
+
+**Objectif :** écrire le contenu HTML de `projets.html`, la liste de mes réalisations, sans le style.
+
+**Ce qui a été fait :**
+
+- `projets.html` contient :
+  - le même en-tête et le même pied de page que les autres pages, avec « Projets » marqué comme page en cours ;
+  - 4 réalisations : le support IT chez Malakoff Humanis (en cours), le Wi-Fi invité pour restaurants (en cours), le HomeLab et ce portfolio ;
+  - pour chacune : une description, les technologies (sauf pour l'alternance) et les compétences du BTS SIO mobilisées ;
+  - un lien vers le dépôt GitHub, ou vers Mon parcours pour l'alternance.
+- Vérification dans Chrome via Live Server :
+  - un seul `h1`, puis `h2`, `h3` et `h4`, sans saut de niveau ;
+  - ordinateur (1536px) et téléphone (375px) : pas de défilement horizontal. Le contenu n'a pas encore de style : il sera mis en forme à la phase CSS.
+
+**Problèmes et solutions :**
+
+- **Problème :** Claude ne trouvait pas le projet Wi-Fi invité sur mon profil GitHub, car il se trouve dans une organisation à part.
+- **Solution :** je lui ai donné le lien de l'organisation, où il a trouvé le dépôt `wifi-resto`.
+
+**Décisions :**
+
+- L'alternance figure parmi les réalisations avec la mention « en cours », et reste décrite de façon générale, sans aucun outil ni information interne.
+- Aucune adresse IP, aucun port ni aucun détail de configuration du homelab sur le site.
+- Le restaurant partenaire et les membres de l'équipe du projet Wi-Fi ne sont pas nommés.
+- Pas de lien vers les fiches détaillées pour l'instant : elles n'existent pas encore.
+
+**Ce que j'ai appris :**
+
+- Une organisation GitHub permet à une équipe de partager des dépôts en dehors de son profil personnel.
+- Pour chaque réalisation, le jury attend les compétences mobilisées et ma contribution personnelle.
+- Il vaut mieux donner à un lien un texte qui dit où il mène (« Voir le dépôt HomeLab sur GitHub ») : un lecteur d'écran peut lire les liens hors de leur contexte.

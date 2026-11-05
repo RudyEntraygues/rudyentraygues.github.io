@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projets | Rudy Entraygues</title>
+    <meta name="description" content="Réalisations de Rudy Entraygues : support IT en alternance, Wi-Fi invité pour restaurants, homelab sous Proxmox VE et portfolio BTS SIO.">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <!-- En-tête : nom du site et menu de navigation, présent sur toutes les pages -->
+    <header class="en-tete">
+        <a class="logo" href="index.html">Rudy Entraygues</a>
+
+        <nav aria-label="Menu principal">
+            <ul class="menu">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="mon-parcours.html">Mon parcours</a></li>
+                <li><a href="competences.html">Compétences</a></li>
+                <li><a href="projets.html" aria-current="page">Projets</a></li>
+                <li><a href="veille.html">Veille</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contenu principal : la liste de mes réalisations -->
+    <main>
+        <!-- Introduction -->
+        <h1>Mes projets</h1>
+        <p>Voici mes réalisations, en entreprise, en équipe et en autonomie. Pour chacune, j'indique les technologies utilisées et les compétences du BTS SIO mobilisées.</p>
+
+        <!-- Réalisations : une par article, avec ses technologies et ses compétences -->
+        <section>
+            <h2>Réalisations</h2>
+
+            <!-- Alternance : décrite de façon générale, sans information interne -->
+            <article>
+                <h3>Support IT chez Malakoff Humanis (en cours)</h3>
+                <p>Dans le cadre de mon alternance, j'interviens comme chargé de support IT de niveau 2 : gestion et suivi des incidents, et contrôle de la qualité du support. Cette réalisation sera détaillée au fil de ma formation.</p>
+
+                <h4>Compétences mobilisées</h4>
+                <ul>
+                    <li>Répondre aux incidents et aux demandes d'assistance et d'évolution</li>
+                </ul>
+
+                <p><a href="mon-parcours.html">Voir mon alternance dans mon parcours</a></p>
+            </article>
+
+            <!-- Wi-Fi invité : projet d'équipe de la formation -->
+            <article>
+                <h3>Wi-Fi invité pour restaurants (en cours)</h3>
+                <p>Projet d'équipe de 3 étudiants en BTS SIO (2 SISR et 1 SLAM), avec un pilote dans un restaurant partenaire à Rennes. Un boîtier fournit aux clients un Wi-Fi isolé du réseau de l'établissement, avec un portail captif, un débit plafonné et la conservation légale des journaux de connexion pendant 1 an.</p>
+
+                <h4>Technologies</h4>
+                <ul>
+                    <li>OpenWrt et openNDS</li>
+                    <li>WireGuard</li>
+                    <li>Debian et Docker Compose</li>
+                    <li>Nginx</li>
+                    <li>Python, Flask et PostgreSQL</li>
+                    <li>Uptime Kuma</li>
+                </ul>
+
+                <h4>Compétences mobilisées</h4>
+                <ul>
+                    <li>Travailler en mode projet</li>
+                    <li>Mettre à disposition des utilisateurs un service informatique</li>
+                </ul>
+
+                <p><a href="https://github.com/Projet-wifi-Invite/wifi-resto">Voir le dépôt du projet Wi-Fi invité sur GitHub</a></p>
+            </article>
+
+            <!-- Homelab : projet personnel -->
+            <article>
+                <h3>HomeLab</h3>
+                <p>Un ancien PC portable recyclé en serveur dédié sous Proxmox VE, allumé 24h/24. Les services tournent dans des conteneurs Docker gérés avec Portainer. L'accès est sécurisé par des clés SSH, fail2ban et un pare-feu. Chaque étape et chaque panne résolue est documentée.</p>
+
+                <h4>Technologies</h4>
+                <ul>
+                    <li>Proxmox VE et conteneurs LXC</li>
+                    <li>Debian</li>
+                    <li>Docker et Portainer</li>
+                    <li>Jellyfin, Samba et Home Assistant</li>
+                    <li>Uptime Kuma</li>
+                    <li>SSH par clés, fail2ban et pare-feu</li>
+                </ul>
+
+                <h4>Compétences mobilisées</h4>
+                <ul>
+                    <li>Gérer le patrimoine informatique</li>
+                    <li>Mettre à disposition des utilisateurs un service informatique</li>
+                </ul>
+
+                <p><a href="https://github.com/RudyEntraygues/HomeLab">Voir le dépôt HomeLab sur GitHub</a></p>
+            </article>
+
+            <!-- Portfolio : ce site -->
+            <article>
+                <h3>Portfolio BTS SIO (en construction)</h3>
+                <p>Ce site statique, sans framework, hébergé sur GitHub Pages, sert de support à l'épreuve E5. Il est développé avec une IA utilisée comme outil : je relis et je valide chaque modification, et je fais moi-même chaque commit.</p>
+
+                <h4>Technologies</h4>
+                <ul>
+                    <li>HTML, CSS et JavaScript</li>
+                    <li>Git et GitHub</li>
+                    <li>GitHub Pages</li>
+                </ul>
+
+                <h4>Compétences mobilisées</h4>
+                <ul>
+                    <li>Développer la présence en ligne de l'organisation</li>
+                    <li>Travailler en mode projet</li>
+                    <li>Mettre à disposition des utilisateurs un service informatique</li>
+                </ul>
+
+                <p><a href="https://github.com/RudyEntraygues/rudyentraygues.github.io">Voir le code du portfolio sur GitHub</a></p>
+            </article>
+        </section>
+
+        <!-- Lien vers la page qui présente toutes mes compétences -->
+        <p>Pour voir l'ensemble de ce que je pratique : <a href="competences.html">mes compétences</a>.</p>
+    </main>
+
+    <!-- Pied de page : présent sur toutes les pages -->
+    <footer class="pied-de-page">
+        <p>© 2026 Rudy Entraygues, portfolio réalisé dans le cadre du BTS SIO</p>
+        <p><a href="https://github.com/RudyEntraygues">Mon profil GitHub</a></p>
+        <p><a href="https://linkedin.com/in/rudy-entraygues">Mon profil LinkedIn</a></p>
+        <p><a href="mentions-legales.html">Mentions légales</a></p>
+    </footer>
+</body>
+</html>
