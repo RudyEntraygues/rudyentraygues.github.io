@@ -811,3 +811,43 @@ Ce journal retrace chaque étape de la création de mon portfolio : ce qui a ét
 - La balise `<time>` affiche une date lisible pour l'humain, et son attribut `datetime` donne la même date dans un format compris par les machines (par exemple `2026-07`).
 - Un `<article>` regroupe un bloc complet et autonome, comme une expérience professionnelle.
 - Un site public est lu par tout le monde, y compris par les moteurs de recherche : on n'y met que les informations qu'on accepte de rendre publiques.
+
+---
+
+## Étape 26 : structure HTML de la page « Compétences »
+
+**Date :** 05/11/2026
+
+**Objectif :** écrire le contenu HTML de `competences.html`, sans le style, à partir de mon CV et du README de mon profil GitHub.
+
+**Ce qui a été fait :**
+
+- `competences.html` contient :
+  - le même en-tête et le même pied de page que les autres pages, avec « Compétences » marqué comme page en cours ;
+  - une introduction qui dit clairement que je présente ce que je pratique, et que je reste en apprentissage ;
+  - les 6 compétences du BTS SIO, chacune avec l'endroit où je la travaille (homelab, alternance, portfolio, veille) ;
+  - les technologies que je pratique, regroupées par domaine ;
+  - ce que j'apprends en ce moment et mes prochaines étapes.
+- Vérification dans Chrome via Live Server :
+  - un seul `h1`, puis des `h2` et des `h3`, sans saut de niveau ;
+  - ordinateur (1536px) et téléphone (375px) : pas de défilement horizontal. Le contenu n'a pas encore de style : il sera mis en forme à la phase CSS.
+
+**Problèmes et solutions :**
+
+- **Problème :** la première version de la page, proposée par Claude, ne reprenait que mon CV et n'utilisait pas le README de mon profil GitHub. Je l'ai refusée.
+- **Solution :** Claude a lu mon README, puis a réécrit la page en ajoutant TCP/IP, VLAN, Kali Linux, VirtualBox, PowerShell, Python, Home Assistant et mes apprentissages en cours.
+- **Problème :** sur GitHub, une partie des compétences du README est affichée sous forme de badges, donc d'images, absents du texte de la page.
+- **Solution :** lecture du texte alternatif (`alt`) de chaque badge.
+
+**Décisions :**
+
+- Aucun niveau de maîtrise, ni barre ni pourcentage : je suis et je resterai en apprentissage, et un chiffre ne prouve rien.
+- La mention « en cours d'acquisition » n'est pas utilisée : elle laisserait croire que les autres compétences sont entièrement acquises. L'introduction et la section « Ce que j'apprends » le disent pour toute la page.
+- Les outils no-code restent dans un groupe à part, en fin de liste, pour ne pas brouiller mon profil systèmes et réseaux.
+- La liste des 6 compétences du BTS est à comparer avec la grille officielle de ma session.
+
+**Ce que j'ai appris :**
+
+- Une compétence seule ne prouve rien : il faut montrer où elle a été mise en œuvre.
+- La balise `<cite>` indique le titre d'une œuvre, comme un livre.
+- Une image doit avoir un texte alternatif : c'est grâce à lui qu'un lecteur d'écran, ou un outil, peut comprendre ce qu'elle montre.
