@@ -775,3 +775,39 @@ Ce journal retrace chaque étape de la création de mon portfolio : ce qui a ét
 - `rem` est un multiple de la taille du texte de `<html>`, qui vient du réglage du navigateur : 1rem = 16px par défaut, 24px en « Très grande ».
 - `em` dépend de la taille du parent, donc les valeurs se multiplient quand on imbrique des éléments.
 - Pour convertir, on divise par 16 : 17px ÷ 16 = 1,0625rem.
+
+---
+
+## Étape 25 : structure HTML de la page « Mon parcours »
+
+**Date :** 04/11/2026
+
+**Objectif :** écrire le contenu HTML de `mon-parcours.html` à partir de mon CV, sans le style.
+
+**Ce qui a été fait :**
+
+- Claude a proposé une structure de page, que j'ai validée après avoir répondu à ses questions. Je ne fais plus de maquette à la main : Claude propose, je valide ou je demande des modifications.
+- `mon-parcours.html` contient :
+  - le même en-tête et le même pied de page que l'accueil, avec « Mon parcours » marqué comme page en cours ;
+  - un titre `h1` et une introduction, inspirée de mon CV, qui met en avant ma curiosité et ma motivation ;
+  - les sections Formation, Alternance (chargé de support IT chez Malakoff Humanis), Expériences professionnelles (6 postes, du plus récent au plus ancien), Certifications et Langues ;
+  - des liens vers les pages Compétences et Projets.
+- Vérification dans Chrome via Live Server :
+  - un seul `h1`, puis des `h2` et des `h3`, sans saut de niveau ;
+  - ordinateur (1536px) et téléphone (375px) : pas de défilement horizontal. Le contenu n'a pas encore de style : il sera mis en forme à la phase CSS.
+
+**Problèmes et solutions :** Aucun.
+
+**Décisions :**
+
+- Pas de numéro de téléphone, d'adresse e-mail personnelle ni de photo : le site est public, ce sont des données personnelles.
+- Ville affichée : Rennes. Les noms d'entreprises sont cités. Pas de centres d'intérêt pour l'instant.
+- L'alternance est décrite de façon générale (poste et type de missions), sans aucune information interne.
+- Les compétences techniques (Linux, Proxmox, Docker…) iront sur la page Compétences, et le homelab sur la page Projets, pour ne pas répéter la même chose sur deux pages.
+- Les dates sont écrites dans des balises `<time datetime="…">`, qui donnent la date exacte aux navigateurs et aux lecteurs d'écran.
+
+**Ce que j'ai appris :**
+
+- La balise `<time>` affiche une date lisible pour l'humain, et son attribut `datetime` donne la même date dans un format compris par les machines (par exemple `2026-07`).
+- Un `<article>` regroupe un bloc complet et autonome, comme une expérience professionnelle.
+- Un site public est lu par tout le monde, y compris par les moteurs de recherche : on n'y met que les informations qu'on accepte de rendre publiques.
