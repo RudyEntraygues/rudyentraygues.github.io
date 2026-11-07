@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de synthèse | Rudy Entraygues</title>
+    <meta name="description" content="Tableau de synthèse des réalisations de Rudy Entraygues pour l'épreuve E5 du BTS SIO : chaque réalisation et les compétences qu'elle mobilise.">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <!-- En-tête : nom du site et menu de navigation, présent sur toutes les pages -->
+    <header class="en-tete">
+        <a class="logo" href="index.html">Rudy Entraygues</a>
+
+        <!-- Cette page n'est pas dans le menu : aucun lien n'est marqué comme page en cours -->
+        <nav aria-label="Menu principal">
+            <ul class="menu">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="mon-parcours.html">Mon parcours</a></li>
+                <li><a href="competences.html">Compétences</a></li>
+                <li><a href="projets.html">Projets</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contenu principal : le tableau qui croise mes réalisations et les compétences du BTS SIO -->
+    <main>
+        <!-- Introduction -->
+        <h1>Tableau de synthèse</h1>
+        <p>Ce tableau présente mes réalisations et les compétences du BTS SIO que chacune mobilise. Il accompagne l'épreuve E5 et sera complété au fil de ma formation.</p>
+
+        <!-- Conteneur du tableau : servira en CSS à le faire défiler sur les petits écrans -->
+        <div class="tableau-defilant">
+            <table>
+                <caption>Réalisations et compétences du bloc 1 du BTS SIO</caption>
+
+                <!-- En-têtes de colonnes : les 6 compétences -->
+                <thead>
+                    <tr>
+                        <th scope="col">Réalisation</th>
+                        <th scope="col">Gérer le patrimoine informatique</th>
+                        <th scope="col">Répondre aux incidents et aux demandes d'assistance et d'évolution</th>
+                        <th scope="col">Développer la présence en ligne de l'organisation</th>
+                        <th scope="col">Travailler en mode projet</th>
+                        <th scope="col">Mettre à disposition des utilisateurs un service informatique</th>
+                        <th scope="col">Organiser son développement professionnel</th>
+                    </tr>
+                </thead>
+
+                <!-- Groupe 1 : réalisations en milieu professionnel (alternance) -->
+                <tbody>
+                    <tr>
+                        <th scope="rowgroup" colspan="7">En milieu professionnel</th>
+                    </tr>
+                    <tr>
+                        <th scope="row"><a href="projets.html">Support IT chez Malakoff Humanis</a></th>
+                        <td></td>
+                        <td>Oui</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+
+                <!-- Groupe 2 : réalisations en cours de formation (projets d'équipe et personnels) -->
+                <tbody>
+                    <tr>
+                        <th scope="rowgroup" colspan="7">En cours de formation</th>
+                    </tr>
+                    <tr>
+                        <th scope="row"><a href="projets.html">Wi-Fi invité pour restaurants</a></th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>Oui</td>
+                        <td>Oui</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><a href="projet-homelab.html">HomeLab</a></th>
+                        <td>Oui</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>Oui</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><a href="projets.html">Portfolio BTS SIO</a></th>
+                        <td></td>
+                        <td></td>
+                        <td>Oui</td>
+                        <td>Oui</td>
+                        <td>Oui</td>
+                        <td>Oui</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Liens vers le détail des réalisations et des compétences -->
+        <p>Pour le détail : <a href="projets.html">mes projets</a> et <a href="competences.html">mes compétences</a>.</p>
+    </main>
+
+    <!-- Pied de page : présent sur toutes les pages -->
+    <footer class="pied-de-page">
+        <p>© 2026 Rudy Entraygues, portfolio réalisé dans le cadre du BTS SIO</p>
+        <p><a href="https://github.com/RudyEntraygues">Mon profil GitHub</a></p>
+        <p><a href="https://linkedin.com/in/rudy-entraygues">Mon profil LinkedIn</a></p>
+        <p><a href="mentions-legales.html">Mentions légales</a></p>
+    </footer>
+</body>
+</html>

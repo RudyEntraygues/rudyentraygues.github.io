@@ -970,3 +970,46 @@ Ce journal retrace chaque étape de la création de mon portfolio : ce qui a ét
 - Un formulaire a besoin d'un serveur qui traite les données envoyées : c'est impossible avec du HTML, du CSS et du JavaScript seuls.
 - Un lien `mailto:` ouvre le logiciel de messagerie du visiteur avec l'adresse déjà remplie.
 - Des robots parcourent les sites pour récolter les adresses e-mail : il vaut mieux publier une adresse qu'on peut remplacer.
+
+---
+
+## Étape 30 : page « Tableau de synthèse »
+
+**Date :** 07/11/2026
+
+**Objectif :** créer la version web du tableau de synthèse de l'épreuve E5, qui croise mes réalisations avec les 6 compétences du bloc 1 du BTS SIO.
+
+**Ce qui a été fait :**
+
+- `tableau-de-synthese.html` contient :
+  - le même en-tête et le même pied de page que les autres pages, sans page marquée comme en cours, car le tableau n'est pas dans le menu ;
+  - un tableau : une ligne par réalisation, une colonne par compétence, et « Oui » quand la réalisation mobilise la compétence ;
+  - deux groupes de lignes : « En milieu professionnel » (alternance) et « En cours de formation » (Wi-Fi invité, HomeLab, portfolio) ;
+  - un lien vers la fiche ou la page Projets pour chaque réalisation.
+- `projets.html` et `competences.html` : ajout d'un lien vers le tableau en bas de page.
+- `projets.html` : la compétence « Organiser son développement professionnel » est ajoutée au portfolio.
+- Vérification dans Chrome via Live Server :
+  - un seul `h1`, toutes les lignes ont bien 7 cases ;
+  - chaque compétence est couverte par au moins une réalisation ;
+  - les liens depuis Projets et Compétences sont présents ;
+  - ordinateur (1536px) : pas de défilement horizontal. Téléphone (375px) : le tableau déborde (699px de large), ce qui est attendu tant que le CSS n'est pas fait.
+
+**Problèmes et solutions :**
+
+- **Problème :** la compétence « Organiser son développement professionnel » n'était prouvée par aucune réalisation.
+- **Solution :** elle est rattachée au portfolio, qui sert à construire ma présence professionnelle et à documenter mes apprentissages. La veille la couvrira aussi plus tard.
+
+**Décisions :**
+
+- Un vrai tableau HTML, avec un titre (`caption`) et des en-têtes de lignes et de colonnes (`th scope`) : un lecteur d'écran peut annoncer « HomeLab, Gérer le patrimoine informatique : Oui ».
+- Le mot « Oui » plutôt qu'une coche, mal lue par les lecteurs d'écran.
+- Le tableau n'est pas dans le menu : il sert surtout au jury, et il est accessible depuis Projets et Compétences.
+- Le tableau est placé dans un conteneur `tableau-defilant`, qui servira en CSS à le faire défiler sur téléphone.
+- Aucun numéro de candidat sur le site.
+- Le HomeLab est classé « En cours de formation » : à confirmer avec mes formateurs, ainsi que le modèle officiel du tableau.
+
+**Ce que j'ai appris :**
+
+- Le tableau de synthèse permet au jury de vérifier d'un coup d'œil que toutes les compétences sont couvertes.
+- Un tableau HTML se découpe en `thead` (en-têtes) et `tbody` (groupes de lignes), et `scope` indique si un en-tête concerne une ligne, une colonne ou un groupe.
+- Un tableau large ne tient pas sur un téléphone : il faut prévoir un défilement horizontal limité au tableau, pas à toute la page.
