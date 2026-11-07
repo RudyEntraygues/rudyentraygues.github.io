@@ -930,3 +930,43 @@ Ce journal retrace chaque étape de la création de mon portfolio : ce qui a ét
 - Une fiche de réalisation sert à prouver au jury que j'ai fait le travail moi-même et que je sais l'expliquer.
 - Présenter une panne en « symptôme, cause, solution » montre une méthode de diagnostic.
 - Mon dépôt GitHub doit rester à jour avec ce que j'utilise réellement, sinon le site et le dépôt ne disent pas la même chose.
+
+---
+
+## Étape 29 : page « Contact »
+
+**Date :** 07/11/2026
+
+**Objectif :** écrire la page `contact.html`, qui indique comment me joindre, sans formulaire.
+
+**Ce qui a été fait :**
+
+- `contact.html` contient :
+  - le même en-tête et le même pied de page que les autres pages, avec « Contact » marqué comme page en cours ;
+  - une phrase d'accueil qui invite à me contacter pour une question, un retour ou un échange ;
+  - une partie « Où me joindre » : LinkedIn, GitHub et une adresse e-mail dédiée au portfolio, avec un lien `mailto:` ;
+  - des liens vers Mon parcours et Projets.
+- J'ai créé l'adresse `rudy.entraygues.portfolio@pm.me` avec mon abonnement Proton, uniquement pour le portfolio.
+- Vérification dans Chrome via Live Server :
+  - `h1` puis `h2`, sans saut de niveau ;
+  - ordinateur (1536px) et téléphone (375px) : pas de défilement horizontal ;
+  - les 3 liens de contact pointent vers la bonne adresse.
+
+**Problèmes et solutions :**
+
+- **Problème :** un formulaire de contact ne peut pas fonctionner sur un site statique : GitHub Pages ne fait que servir des fichiers, il ne peut pas recevoir ni envoyer un message.
+- **Solution :** pas de formulaire. Les visiteurs me contactent par LinkedIn ou par e-mail.
+
+**Décisions :**
+
+- Pas de service externe de formulaire (comme Formspree) : il ajouterait une dépendance et confierait les messages des visiteurs à un tiers.
+- Une adresse e-mail dédiée plutôt que mon adresse personnelle : une adresse publiée sur un site reçoit du spam, et je pourrai la remplacer sans toucher à ma boîte personnelle.
+- Une adresse à mon nom plutôt qu'un alias aléatoire : elle inspire plus confiance à un recruteur ou au jury.
+- L'adresse est affichée en entier, pour qu'un visiteur sans logiciel de messagerie puisse la copier.
+- Ni téléphone ni adresse postale, conformément aux règles du projet.
+
+**Ce que j'ai appris :**
+
+- Un formulaire a besoin d'un serveur qui traite les données envoyées : c'est impossible avec du HTML, du CSS et du JavaScript seuls.
+- Un lien `mailto:` ouvre le logiciel de messagerie du visiteur avec l'adresse déjà remplie.
+- Des robots parcourent les sites pour récolter les adresses e-mail : il vaut mieux publier une adresse qu'on peut remplacer.
