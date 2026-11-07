@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomeLab | Rudy Entraygues</title>
+    <meta name="description" content="Fiche de réalisation du HomeLab de Rudy Entraygues : un ancien PC portable recyclé en serveur sous Proxmox VE, avec Docker, accès à distance par WireGuard, sécurisation SSH et supervision.">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <!-- En-tête : nom du site et menu de navigation, présent sur toutes les pages -->
+    <header class="en-tete">
+        <a class="logo" href="index.html">Rudy Entraygues</a>
+
+        <nav aria-label="Menu principal">
+            <ul class="menu">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="mon-parcours.html">Mon parcours</a></li>
+                <li><a href="competences.html">Compétences</a></li>
+                <!-- La fiche fait partie de la rubrique Projets -->
+                <li><a href="projets.html" aria-current="page">Projets</a></li>
+                <li><a href="veille.html">Veille</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contenu principal : fiche de réalisation du homelab (modèle pour les autres fiches) -->
+    <main>
+        <!-- Résumé de la réalisation -->
+        <h1>HomeLab : un serveur personnel sous Proxmox VE</h1>
+        <p>Projet personnel commencé en <time datetime="2026-08">août 2026</time>, en cours. Un ancien PC portable recyclé en serveur allumé 24h/24, qui héberge des services pour la maison.</p>
+
+        <!-- Pourquoi ce projet -->
+        <section>
+            <h2>Contexte et objectifs</h2>
+            <p>J'ai monté ce homelab à la mi-août 2026, au moment où j'ai appris mon admission en BTS SIO. Je voulais apprendre la technologie de façon concrète : voir ce qu'elle apporte vraiment, et comprendre en profondeur le fonctionnement des logiciels, du Wi-Fi, de l'adressage IP et des conteneurs.</p>
+            <p>Mes objectifs :</p>
+            <ul>
+                <li>Installer et administrer un serveur de virtualisation.</li>
+                <li>Héberger des services utiles et les rendre accessibles sur le réseau local.</li>
+                <li>Sécuriser les accès au serveur.</li>
+                <li>Documenter chaque étape et chaque panne.</li>
+            </ul>
+        </section>
+
+        <!-- Matériel et logiciels -->
+        <section>
+            <h2>Environnement technique</h2>
+
+            <h3>Matériel</h3>
+            <ul>
+                <li>Un ancien PC portable Acer, dont Windows 10 n'est plus pris en charge.</li>
+                <li>Processeur Intel Core i5-7300HQ (4 cœurs) et 16 Go de mémoire vive.</li>
+                <li>Un SSD de 120 Go pour le système et un disque dur de 1 To pour les données.</li>
+                <li>Une connexion Ethernet avec une adresse IP fixe.</li>
+            </ul>
+
+            <h3>Système et virtualisation</h3>
+            <ul>
+                <li>Proxmox VE : l'hyperviseur, installé directement sur la machine.</li>
+                <li>Un conteneur LXC sous Debian, qui héberge Docker.</li>
+                <li>Docker, et Portainer pour gérer les conteneurs depuis une interface web.</li>
+            </ul>
+
+            <!-- Services regroupés par usage -->
+            <h3>Applications hébergées</h3>
+            <ul>
+                <li>Homarr : tableau de bord qui regroupe l'accès à tous les services.</li>
+                <li>Jellyfin : serveur de films et de séries.</li>
+                <li>Samba et Filebrowser : partage et gestion des fichiers sur le réseau.</li>
+                <li>Home Assistant : domotique.</li>
+                <li>Pi-hole : serveur DNS qui bloque les publicités et les traqueurs pour tout le réseau.</li>
+                <li>Nginx Proxy Manager : proxy inverse, pour accéder aux services par un nom plutôt que par un numéro de port.</li>
+                <li>n8n : automatisation de tâches.</li>
+            </ul>
+
+            <h3>Réseau et sécurité</h3>
+            <ul>
+                <li>WireGuard : VPN qui crée un tunnel chiffré jusqu'à la maison.</li>
+                <li>SSH par clés, fail2ban et pare-feu de Proxmox.</li>
+            </ul>
+
+            <h3>Supervision</h3>
+            <ul>
+                <li>Uptime Kuma : vérifie que chaque service répond.</li>
+                <li>Netdata : suit en temps réel l'utilisation du processeur, de la mémoire et des disques.</li>
+            </ul>
+        </section>
+
+        <!-- Les grandes étapes de la réalisation -->
+        <section>
+            <h2>Ce que j'ai réalisé</h2>
+
+            <h3>Installation de Proxmox VE</h3>
+            <p>J'ai installé Proxmox VE à partir d'une clé USB, configuré le réseau, remplacé les dépôts payants par le dépôt communautaire, puis empêché la mise en veille de l'ordinateur pour qu'il reste allumé capot fermé.</p>
+
+            <h3>Mise en place des services</h3>
+            <p>J'ai créé un conteneur LXC qui héberge Docker, puis déployé les applications avec Portainer. Le disque de données est partagé avec le conteneur. Homarr sert de page d'accueil vers tous les services, et Nginx Proxy Manager permet de les joindre par un nom.</p>
+
+            <h3>Sécurisation des accès</h3>
+            <p>La connexion SSH se fait uniquement par clé, sans mot de passe. fail2ban bloque une adresse après trois échecs de connexion, et le pare-feu de Proxmox n'accepte que le réseau local et refuse tout le reste par défaut.</p>
+
+            <h3>Accès à distance</h3>
+            <p>J'ai créé un tunnel VPN WireGuard jusqu'à la maison. Où que je sois, je me connecte au tunnel et j'accède à mes services comme si j'étais sur le réseau local, avec une connexion chiffrée.</p>
+
+            <h3>Supervision</h3>
+            <p>Uptime Kuma vérifie en permanence que chaque service répond, et Netdata me montre la charge du serveur.</p>
+        </section>
+
+        <!-- Pannes réelles : symptôme, cause, solution -->
+        <section>
+            <h2>Problèmes rencontrés et solutions</h2>
+
+            <article>
+                <h3>Le disque interne n'apparaissait pas à l'installation</h3>
+                <p><strong>Symptôme :</strong> l'installateur de Proxmox ne proposait que la clé USB, pas le SSD de l'ordinateur.</p>
+                <p><strong>Cause :</strong> le contrôleur de stockage était réglé en mode VMD dans le BIOS, et l'installateur ne savait pas voir un disque derrière ce contrôleur.</p>
+                <p><strong>Solution :</strong> désactiver le mode VMD dans le BIOS, puis relancer l'installation.</p>
+            </article>
+
+            <article>
+                <h3>Le conteneur n'avait plus accès à internet</h3>
+                <p><strong>Symptôme :</strong> aucun accès réseau depuis le conteneur, alors que Proxmox restait connecté.</p>
+                <p><strong>Cause :</strong> un numéro de VLAN saisi par erreur à la création du conteneur. Mon réseau domestique n'utilise pas de VLAN : le trafic marqué n'arrivait donc nulle part.</p>
+                <p><strong>Solution :</strong> vider le champ VLAN dans les réglages réseau du conteneur, puis le redémarrer.</p>
+            </article>
+
+            <article>
+                <h3>« Permission refusée » sur le disque de données</h3>
+                <p><strong>Symptôme :</strong> impossible de créer un dossier sur le disque de données, même en administrateur (root) dans le conteneur.</p>
+                <p><strong>Cause :</strong> dans un conteneur non privilégié, le root du conteneur n'est pas le vrai root de la machine. Proxmox lui attribue un autre numéro d'utilisateur (100000), qui n'avait aucun droit sur ce dossier.</p>
+                <p><strong>Solution :</strong> créer les dossiers depuis Proxmox et les attribuer à l'utilisateur 100000. Depuis, je crée toujours les dossiers des services de cette façon.</p>
+            </article>
+
+            <article>
+                <h3>Je me suis bloqué l'accès SSH</h3>
+                <p><strong>Symptôme :</strong> après avoir désactivé la connexion par mot de passe, la connexion était refusée, aussi bien par mot de passe que par clé.</p>
+                <p><strong>Cause :</strong> j'avais coupé l'accès par mot de passe avant de vérifier que ma clé fonctionnait.</p>
+                <p><strong>Solution :</strong> reprendre la main par la console de Proxmox, réactiver temporairement le mot de passe, puis refaire les étapes dans le bon ordre : d'abord tester la clé, ensuite seulement désactiver le mot de passe.</p>
+            </article>
+        </section>
+
+        <!-- Ce qui fonctionne aujourd'hui -->
+        <section>
+            <h2>Résultat</h2>
+            <p>Le serveur fonctionne en continu. Les services sont accessibles à la maison et à distance par le VPN, l'accès d'administration est sécurisé, et la supervision me prévient en cas de problème. L'installation est documentée sur GitHub.</p>
+            <p>Prochaines étapes : la mise en place de sauvegardes, l'installation du SIEM Wazuh, puis d'Active Directory et de Windows Server.</p>
+        </section>
+
+        <!-- Lien avec le référentiel du BTS -->
+        <section>
+            <h2>Compétences du BTS mobilisées</h2>
+            <ul>
+                <li>Gérer le patrimoine informatique</li>
+                <li>Mettre à disposition des utilisateurs un service informatique</li>
+            </ul>
+        </section>
+
+        <!-- Bilan personnel -->
+        <section>
+            <h2>Ce que j'ai appris</h2>
+            <ul>
+                <li>Comment fonctionne la virtualisation, et la différence entre une machine virtuelle et un conteneur.</li>
+                <li>Diagnostiquer une panne méthodiquement : observer le symptôme, chercher la cause, puis corriger.</li>
+                <li>Toujours vérifier qu'un nouvel accès fonctionne avant de couper l'ancien.</li>
+                <li>Documenter au fur et à mesure : mes notes m'ont servi à chaque nouvelle panne.</li>
+            </ul>
+        </section>
+
+        <!-- Liens : dépôt et retour aux projets -->
+        <section>
+            <h2>Pour aller plus loin</h2>
+            <ul>
+                <li><a href="https://github.com/RudyEntraygues/HomeLab">Voir la documentation du HomeLab sur GitHub</a></li>
+                <li><a href="projets.html">Revenir à la liste de mes projets</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <!-- Pied de page : présent sur toutes les pages -->
+    <footer class="pied-de-page">
+        <p>© 2026 Rudy Entraygues, portfolio réalisé dans le cadre du BTS SIO</p>
+        <p><a href="https://github.com/RudyEntraygues">Mon profil GitHub</a></p>
+        <p><a href="https://linkedin.com/in/rudy-entraygues">Mon profil LinkedIn</a></p>
+        <p><a href="mentions-legales.html">Mentions légales</a></p>
+    </footer>
+</body>
+</html>

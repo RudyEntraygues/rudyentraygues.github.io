@@ -507,11 +507,11 @@ Ce journal retrace chaque étape de la création de mon portfolio : ce qui a ét
 
 - Choix des trois verts avec Claude (chat), puis vérification des contrastes par Claude Code :
 
-  | Rôle | Avant | Après | Contraste |
-  |---|---|---|---|
+  | Rôle                            | Avant     | Après     | Contraste                                    |
+  | ------------------------------- | --------- | --------- | -------------------------------------------- |
   | Liens et boutons sur fond clair | `#0066cc` | `#00783c` | 5,6:1 sur blanc (et texte blanc sur ce vert) |
-  | Contour au clavier | `#0071e3` | `#008643` | 5,1:1 sur blanc, 4,1:1 sur la barre noire |
-  | Liens sur fond sombre | `#2997ff` | `#00ab56` | 4,9:1 sur `#272729` |
+  | Contour au clavier              | `#0071e3` | `#008643` | 5,1:1 sur blanc, 4,1:1 sur la barre noire    |
+  | Liens sur fond sombre           | `#2997ff` | `#00ab56` | 4,9:1 sur `#272729`                          |
 
 - `DESIGN.md` : remplacement des trois codes couleur, des noms de couleurs (« Action Blue » devient « Action Green »…) et du mot « blue » dans les phrases. Le reste du fichier n'a pas changé.
 - `css/style.css` : changement des trois valeurs dans `:root`, et du mot « bleu » dans les commentaires.
@@ -696,13 +696,13 @@ Ce journal retrace chaque étape de la création de mon portfolio : ce qui a ét
 
 - Renommage des composants qui venaient de la boutique Apple, partout dans le fichier (YAML et texte) :
 
-  | Avant | Après |
-  |---|---|
-  | `product-tile-light / -parchment / -dark / -dark-2 / -dark-3` | `section-tile-…` |
-  | `store-utility-card` | `project-card` |
-  | `button-store-hero` | `button-hero` |
-  | `configurator-option-chip(-selected)` | `tag-chip(-selected)` |
-  | `environment-quote-card` | `quote-card` |
+  | Avant                                                         | Après                 |
+  | ------------------------------------------------------------- | --------------------- |
+  | `product-tile-light / -parchment / -dark / -dark-2 / -dark-3` | `section-tile-…`      |
+  | `store-utility-card`                                          | `project-card`        |
+  | `button-store-hero`                                           | `button-hero`         |
+  | `configurator-option-chip(-selected)`                         | `tag-chip(-selected)` |
+  | `environment-quote-card`                                      | `quote-card`          |
 
 - Couleurs : « Sky Link Green » (copié du « Sky Link Blue » d'Apple) devient « Light Green ». « Paper White », une couleur qui n'existait pas dans mes couleurs, est remplacée par `{colors.on-primary}`.
 - La description et l'introduction disent maintenant que c'est mon système de design, inspiré du style sobre d'Apple, avec un seul accent vert.
@@ -740,15 +740,15 @@ Ce journal retrace chaque étape de la création de mon portfolio : ce qui a ét
 
 - Dans `css/style.css`, les 16 valeurs de `font-size` passent de `px` en `rem`, avec une base de 16px = 1rem. La valeur d'origine est notée en commentaire (par exemple `1.0625rem; /* 17px */`) :
 
-  | px | rem |
-  |---|---|
-  | 14px | 0.875rem |
+  | px   | rem       |
+  | ---- | --------- |
+  | 14px | 0.875rem  |
   | 17px | 1.0625rem |
   | 21px | 1.3125rem |
-  | 28px | 1.75rem |
-  | 34px | 2.125rem |
-  | 40px | 2.5rem |
-  | 56px | 3.5rem |
+  | 28px | 1.75rem   |
+  | 34px | 2.125rem  |
+  | 40px | 2.5rem    |
+  | 56px | 3.5rem    |
 
 - Les espacements, arrondis, bordures, largeurs, `letter-spacing` et points de rupture des media queries restent en `px`.
 - Vérification dans Chrome via Live Server, en mesurant les tailles calculées par le navigateur :
@@ -888,3 +888,45 @@ Ce journal retrace chaque étape de la création de mon portfolio : ce qui a ét
 - Une organisation GitHub permet à une équipe de partager des dépôts en dehors de son profil personnel.
 - Pour chaque réalisation, le jury attend les compétences mobilisées et ma contribution personnelle.
 - Il vaut mieux donner à un lien un texte qui dit où il mène (« Voir le dépôt HomeLab sur GitHub ») : un lecteur d'écran peut lire les liens hors de leur contexte.
+
+---
+
+## Étape 28 : fiche de réalisation du HomeLab
+
+**Date :** 07/11/2026
+
+**Objectif :** créer la première fiche de réalisation détaillée, celle du HomeLab, qui servira de modèle pour les autres fiches.
+
+**Ce qui a été fait :**
+
+- `projet-homelab.html` contient, dans l'ordre :
+  - un résumé (début en août 2026, projet en cours) ;
+  - le contexte et les objectifs : pourquoi j'ai monté ce homelab au moment de mon admission en BTS ;
+  - l'environnement technique : matériel, virtualisation, applications hébergées, réseau et sécurité, supervision ;
+  - ce que j'ai réalisé : installation de Proxmox, services, sécurisation, accès à distance par WireGuard, supervision ;
+  - 4 problèmes rencontrés, chacun présenté en symptôme, cause et solution ;
+  - le résultat, les compétences du BTS mobilisées, ce que j'ai appris, et les liens vers le dépôt et vers Projets.
+- `projets.html` : ajout d'un lien « Voir la fiche détaillée du HomeLab » dans l'article HomeLab.
+- Vérification dans Chrome via Live Server :
+  - un seul `h1`, 23 titres sans saut de niveau, « Projets » marqué comme page en cours ;
+  - ordinateur (1536px) et téléphone (375px) : pas de défilement horizontal ;
+  - le lien depuis la page Projets mène bien à la fiche.
+
+**Problèmes et solutions :**
+
+- **Problème :** le dépôt ne cite pas toutes les applications que j'utilise.
+- **Solution :** je me suis connecté via WireGuard pour retrouver mes apps : Homarr, Pi-hole, Nginx Proxy Manager, Netdata, n8n, Filebrowser et WireGuard.
+
+**Décisions :**
+
+- La fiche est à la racine du site, et non dans un dossier `projets/`, pour garder des liens simples, sans `../`.
+- Dans le menu, « Projets » est marqué comme page en cours, car la fiche fait partie de cette rubrique.
+- Sur les 8 problèmes documentés dans le dépôt, j'en garde 4 : le mode VMD, le VLAN oublié, les permissions du conteneur non privilégié et le blocage SSH. Ce sont les plus utiles pour montrer une démarche de diagnostic.
+- Aucune adresse IP, aucun port ni aucun nom de machine sur le site.
+- Pas de captures d'écran pour l'instant : elles viendront plus tard, une fois les informations sensibles masquées.
+
+**Ce que j'ai appris :**
+
+- Une fiche de réalisation sert à prouver au jury que j'ai fait le travail moi-même et que je sais l'expliquer.
+- Présenter une panne en « symptôme, cause, solution » montre une méthode de diagnostic.
+- Mon dépôt GitHub doit rester à jour avec ce que j'utilise réellement, sinon le site et le dépôt ne disent pas la même chose.
